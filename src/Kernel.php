@@ -32,6 +32,11 @@ class Kernel extends BaseKernel
             if ($envs[$this->environment] ?? $envs['all'] ?? false) {
                 yield new $class();
             }
+           /* if (in_array($this->getEnvironment(), array('dev', 'test'))) {
+                $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
+                // ...
+            }*/
+    
         }
     }
 
