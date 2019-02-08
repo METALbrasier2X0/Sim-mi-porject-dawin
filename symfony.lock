@@ -125,9 +125,6 @@
             "ref": "fb7e19da7f013d0d422fa9bce16f5c510e27609b"
         }
     },
-    "sensio/generator-bundle": {
-        "version": "v3.1.7"
-    },
     "swiftmailer/swiftmailer": {
         "version": "v6.1.3"
     },
