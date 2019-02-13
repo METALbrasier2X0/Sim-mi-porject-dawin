@@ -1,0 +1,11 @@
+.flex_30{
+    flex-basis: 30%;
+}
+
+.text_center{
+    text-align: center;
+}
+
+.container{
+    margin:10px;
+}

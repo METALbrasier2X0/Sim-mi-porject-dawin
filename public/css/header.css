@@ -1,0 +1,22 @@
+header{
+    height:100px;
+    width:100%;
+    background-color: #006992;
+    display: flex;
+    justify-content: center;
+}
+
+header svg{
+    height:100%;
+    width:auto;
+}
+
+header path{
+    fill:black !important;
+    transition: fill 1s;
+}
+
+header svg:hover path{
+    fill:white !important;
+    transition: fill 1s;
+}
