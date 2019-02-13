@@ -1,0 +1,90 @@
+{% block menu %}
+      <div class="menu-header nav_closed" onclick="clickmenu()">
+        <div class="menu-header-barre1"></div>
+        <div class="menu-header-barre2"></div>
+        <div class="menu-header-barre3"></div>
+      </div>
+
+
+      <div class="navbarback">
+      </div>
+      <div class="navbar">
+        <div>
+        </div>
+        <hr/>
+        <a class="linknav" href="#">Accueil</a>
+        <hr/>
+        <a class="linknav" href="#">Liste des médecins</a>
+        <hr/>
+        <a class="linknav" href="#">Contact</a>
+        <hr/>
+        <a class="linknav" href="#}">Espace médecin</a>
+        <hr/>
+      </div>
+
+      <script>
+        var navbar = false;
+        var height = 50;
+
+        var h1 = height*0.25;
+        var h2 = height*0.5;
+        var h3 = height*0.75;
+
+function clickmenu(){
+  if(navbar == false){
+    opennavbar();
+    navbar = true;
+  }
+  else{
+    closenavbar();
+    navbar = false;
+  }
+}
+
+function opennavbar(){
+  $('.navbarback').css({
+  "display" : 'block', // couleur rouge
+  "animation" : 'animnavbar1 0.5s',
+  });
+  $('.navbar').css({
+  "display" : 'block', // couleur rouge
+  "animation" : 'animnavbarOpen 0.5s',
+  });
+  $('.navbar a').css({
+  "opacity" : '1',
+  "animation" : 'animnavbaraOpenOpa 0.5s'
+  });
+  $('.menu-header').removeClass("nav_closed");
+  $('.menu-header').addClass("nav_open");
+}
+function closenavbar(){
+  $('.navbar').css({
+  "animation" : 'animnavbarclose 0.5s',
+  });
+  $('.navbarback').css({
+  "animation" : 'animnavbarcloseopacity 0.5s',
+  });
+  $('.linknav').css({
+  "opacity" : '0',
+  "animation" : 'animnavbaracloseOpa 0.5s',
+  });
+  $('.menu-header').addClass("nav_closed");
+  $('.menu-header').removeClass("nav_open");
+    setTimeout( function() {
+        closenavbardisplaynone();
+    }, 500 );
+  function closenavbardisplaynone(){
+    $('.navbarback').css({
+    "display" : 'none', // couleur rouge
+    });
+    $('.navbar').css({
+    "display" : 'none', // couleur rouge
+    });
+    
+  }
+
+}
+
+      </script>
+
+{% endblock %}

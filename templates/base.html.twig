@@ -7,10 +7,14 @@
         <link rel="stylesheet" href="public/css/classes.css" type="text/css" />
         <link rel="stylesheet" href="public/css/header.css" type="text/css" />
         <link rel="stylesheet" href="public/css/footer.css" type="text/css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-    <header>{{ source('./svg/logo.svg') }}</header> 
+    <header>
+        {{ source('./svg/logo.svg') }}
+        {{ block("menu", "menu.html.twig") }}
+    </header> 
     <div class="container">
         {% block body %}{% endblock %}
     </div>
