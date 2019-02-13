@@ -1,0 +1,190 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chantier{% endblock %}
+
+{% block body %}
+<style>
+    <style>
+    html{
+        font Montserrat;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .button{
+      margin: 5px;
+      padding: 5px 30px;
+      font-size: 16px;
+      font-family: 'Montserrat', sans-serif;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .button:active{
+      margin: 0px;
+      padding: 10px 35px;
+    }
+
+    .bOrange{
+      background-color: #ECA400;
+      border: solid 1px #ECA400;
+      color: white;
+      transition: 0.2s;
+      text-align: right;
+    }
+    .bOrange:hover{
+      background-color: white;
+      color: #ECA400;
+      transition: 0.2s;
+    }
+    .right_panel{
+        width: 35%;
+        background-color: #006992;
+        color: white; 
+        height: 100%;
+        position: fixed;
+        right: 0px;
+        top: 0px;
+        height: 100%;
+        padding: 60px;
+        }
+
+    .question{
+    left: 50px;
+    }
+    
+    .answer{
+         margin-top: 20px;
+    }
+
+    #send{
+    position: fixed;
+      right: 50px;
+    }
+
+    .img_question>img{
+     width:450px;
+    }
+    
+    .bar{
+    background-color: #001D4A;
+    width: 200px;
+    }
+
+    .stat1{
+         height:16px;
+         width:20%;
+         background-color:#ECA400;
+    }
+
+    .stat2{
+         height:16px;
+         width:50%;
+         background-color:#ECA400;
+    }
+
+    .stat3{
+         height:16px;
+         width:80%;
+         background-color:#ECA400;
+    }
+
+    .stat4{
+         height:16px;
+         width:100%;
+         background-color:#ECA400;
+    }
+
+    .meters{
+        display: flex;
+    }
+
+    .progress{
+        padding-right: 20px;
+    }
+    
+    .center{
+          display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+    }
+
+    .view{
+        display: block;
+        margin-top: 50px;
+        margin-left: 50px;
+        width: 50%;
+    }
+  </style>
+
+{# partie gauche contenant l'image et les barres #}
+
+<div class="left_panel">
+
+<div class="meters">
+
+    <div class="progress">
+        <h4>Satisfaction client</h4>
+            <div class="bar">
+                <div class="stat1"></div>
+            </div>
+        <p>20/100<p>
+    </div>
+
+        <div class="progress">
+        <h4>Details</h4>
+            <div class="bar">
+                <div class="stat2"></div>
+            </div>
+        <p>50/100<p>
+    </div>
+
+    <div class="progress">
+        <h4>Réputation entreprise</h4>
+            <div class="bar">
+                <div class="stat3"></div>
+            </div>
+        <p>80/100<p>
+    </div>
+
+    <div class="progress">
+        <h4>Réputation personnelle</h4>
+            <div class="bar">
+                <div class="stat4"></div>
+            </div>
+        <p>100/100<p>
+    </div>
+
+</div>
+
+
+
+    <div class="view-house">
+        <img src="https://3dwarehouse.sketchup.com/warehouse/v1.0/publiccontent/ae7b0af3-8096-4bb5-8de0-e8ab878c866d" class="view" >
+    </div>
+</div>
+
+{# partie droite contenant les question, les réponses ainsi que les boutons#}
+
+<div class="right_panel">
+
+    <div class="question">
+        <h3> Suis je une question ? </h3>
+    </div>
+
+ <div class="img_question">
+        <img src="http://absketches.com/wp-content/uploads/2016/01/TerrainHouse002.jpg" class="center" >
+    </div>
+
+    <div class="answer">
+        <input type="checkbox" id="answer1" value="newsletter"> Réponse 1</input> <br>
+        <input type="checkbox" id="answer2" value="newsletter"> Réponse 2</input> <br>
+        <input type="checkbox" id="answer3" value="newsletter"> Réponse 3</input> <br>
+        <input type="checkbox" id="answer4" value="newsletter"> Réponse 4</input> <br>
+
+        <input class="button bOrange" type="button" id="send" value="Envoyer"></input>
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block footer %} <div> <h2></h2> </div>{% endblock %}
