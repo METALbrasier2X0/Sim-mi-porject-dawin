@@ -12,8 +12,7 @@ class EtapeController extends Controller
      */
     public function index()
     {
-        return $this->render('etape/index.html.twig', [
-            'controller_name' => 'EtapeController',
-        ]);
+        return $this->render('etape/index.html.twig', ['controller_name' => 'EtapeController',]);
     }
+
 }

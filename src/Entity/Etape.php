@@ -33,6 +33,11 @@ class Etape
      */
     private $Questions_list;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $url_image;
+
     public function __construct()
     {
         $this->Questions_list = new ArrayCollection();
@@ -94,6 +99,18 @@ class Etape
                 $questionsList->setIdEtape(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUrlImage(): ?string
+    {
+        return $this->url_image;
+    }
+
+    public function setUrlImage(?string $url_image): self
+    {
+        $this->url_image = $url_image;
 
         return $this;
     }

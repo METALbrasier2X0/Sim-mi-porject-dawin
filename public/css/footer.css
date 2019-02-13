@@ -1,0 +1,13 @@
+footer{
+    color:white;
+    min-height:100px;
+    background-color: #006992;
+    padding: 50px 0px 50px 0px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+footer h2{
+    font-size: 120%;
+    margin-bottom: 10px;
+}

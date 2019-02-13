@@ -2,12 +2,38 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}SIM{% endblock %}</title>
+        <link rel="stylesheet" href="public/css/reset.css" type="text/css" />
+        <link rel="stylesheet" href="public/css/classes.css" type="text/css" />
+        <link rel="stylesheet" href="public/css/header.css" type="text/css" />
+        <link rel="stylesheet" href="public/css/footer.css" type="text/css" />
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+    <header>{{ source('./svg/logo.svg') }}</header> 
+    <div class="container">
         {% block body %}{% endblock %}
-        {% block footer %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+    </div>
+    <footer>
+        <div class="flex_30">
+            <h2>Services</h2>
+            <p>Lorem Ipsum</p>
+        </div>
+        <div class="text_center">
+            <h2>Catégories</h2>
+            <ul>
+                <li>un</li>
+                <li>deux</li>
+            </ul>
+        </div>
+        <div class="text_center">
+            <h2>Partners</h2>
+            <ul>
+                <li>un</li>
+                <li>deux</li>
+            </ul>
+        </div>
+    </footer>
+    {% block javascripts %}{% endblock %}
     </body>
 </html>
