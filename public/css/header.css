@@ -20,30 +20,42 @@ header path{
     transition: fill 1s;
 }
 
-header svg:hover path{
+header:hover path{
     fill:white !important;
     transition: fill 1s;
 }
 
-header svg #g828{
-    transform: translate(0,0);
+header #path2223{
+  transform: matrix(0.26458333,0,0,0.26458333,-290.52722,-632.03412);
+  transition: fill 1s, transform 1s;
+}
+
+header:hover #path2223{
+  fill:#ECA400 !important;
+  transform: matrix(0.27458333,0,0,0.27458333,-290.52722,-632.03412);
+  transition: fill 1s, transform 1s;
+}
+
+/*header svg #g828{
+  transform: matrix(1, 0, 0, 1, -1, -1);
     transition: transform 1s, fill 1s;
 }
 
 header svg:hover #g828{
-    transform: translate(-1.5%,-3%);
+  transform: matrix(1, 0, 0, 1, -1, -1);
     transition: transform 1s, fill 1s;
 }
 
 header svg #g832{
-    transform: translate(0,0);
+    transform: matrix(1, 0, 0, 1, -1, -1);
     transition: transform 1s, fill 1s;
 }
 
 header svg:hover #g832{
-    transform: translate(-3%,-1.5%);
+    transform: matrix(1, 0, 0, 1, -1, -1);
     transition: transform 1s, fill 1s;
-}
+}*/
+
 :root {
     --ph1: 15px;
     --ph2: 25px;
