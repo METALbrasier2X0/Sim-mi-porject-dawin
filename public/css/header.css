@@ -13,8 +13,10 @@ header svg{
 
 header path{
     fill:black !important;
+    transition: fill 1s;
 }
 
 header svg:hover path{
     fill:white !important;
+    transition: fill 1s;
 }
