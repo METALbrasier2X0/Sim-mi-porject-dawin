@@ -1,0 +1,103 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chantier{% endblock %}
+
+{% block body %}
+<style>
+    <style>
+    html{
+        font Montserrat;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .button{
+      margin: 5px;
+      padding: 5px 30px;
+      font-size: 16px;
+      font-family: 'Montserrat', sans-serif;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .button:active{
+      margin: 0px;
+      padding: 10px 35px;
+    }
+
+    .bOrange{
+      background-color: #ECA400;
+      border: solid 1px #ECA400;
+      color: white;
+      transition: 0.2s;
+      text-align: right;
+    }
+    .bOrange:hover{
+      background-color: white;
+      color: #ECA400;
+      transition: 0.2s;
+    }
+    .right_panel{
+        width: 35%;
+        background-color: #006992;
+        color: white; 
+        height: 100%;
+        position: fixed;
+        right: 0px;
+        height: 100%;
+        padding: 60px;
+        }
+
+    .question{
+    left: 50px;
+    }
+    
+    .answer{
+         margin-top: 20px;
+    }
+
+    #send{
+    position: fixed;
+      right: 50px;
+    }
+
+    .img_question>img{
+     width:450px;
+    }
+    
+  </style>
+
+
+<div class="left_panel">
+
+    <div class="meters">
+    
+    </div>
+
+    <div class="view-house">
+        <img src="" >
+    </div>
+</div>
+
+
+<div class="right_panel">
+
+    <div class="question">
+        <h3> Suis je une question ? </h3>
+    </div>
+
+ <div class="img_question">
+        <img src="http://absketches.com/wp-content/uploads/2016/01/TerrainHouse002.jpg" >
+    </div>
+
+    <div class="answer">
+        <input type="checkbox" id="answer1" value="newsletter"> Réponse 1</input> <br>
+        <input type="checkbox" id="answer2" value="newsletter"> Réponse 2</input> <br>
+        <input type="checkbox" id="answer3" value="newsletter"> Réponse 3</input> <br>
+        <input type="checkbox" id="answer4" value="newsletter"> Réponse 4</input> <br>
+
+        <input class="button bOrange" type="button" id="send" value="Envoyer"></input>
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block footer %} <div> <h2>timeline js</h2> </div>{% endblock %}

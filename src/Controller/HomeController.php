@@ -19,4 +19,13 @@ class HomeController extends AbstractController
     {
         return $this->render('home/index.html.twig', ['testTable' => $testTableRepository->findAll()]);
     }
+
+    /**
+     * @Route("/chantier", name="chantier")
+     */
+    public function chantier()
+    {
+        return $this->render('ingame/chantier.html.twig');
+    }
+    
 }
