@@ -36,13 +36,13 @@
     }
     .right_panel{
         width: 35%;
-        background-color: #006992;
+        background-color: #27476E;
         color: white; 
         height: 100%;
-        position: fixed;
+        position: absolute;
         right: 0px;
-        top: 0px;
-        height: 100%;
+        top: 100px;
+        height: 82%;
         padding: 60px;
         }
 
@@ -111,10 +111,11 @@
         display: block;
         margin-top: 50px;
         margin-left: 50px;
+        margin-bottom: 10%;
         width: 50%;
     }
   </style>
-
+<div>
 {# partie gauche contenant l'image et les barres #}
 
 <div class="left_panel">
@@ -184,7 +185,7 @@
     </div>
 </div>
 
-
+</div>
 {% endblock %}
 
 {% block footer %} <div> <h2></h2> </div>{% endblock %}
