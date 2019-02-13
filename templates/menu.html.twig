@@ -1,5 +1,5 @@
 {% block menu %}
-      <div class="menu-header nav_closed" onclick="clickmenu()">
+      <div class="menu-header" onclick="clickmenu()">
         <div class="menu-header-barre1"></div>
         <div class="menu-header-barre2"></div>
         <div class="menu-header-barre3"></div>
@@ -24,11 +24,8 @@
 
       <script>
         var navbar = false;
-        var height = 50;
-
-        var h1 = height*0.25;
-        var h2 = height*0.5;
-        var h3 = height*0.75;
+        
+        $('header').addClass("nav_closed");
 
 function clickmenu(){
   if(navbar == false){
@@ -54,8 +51,8 @@ function opennavbar(){
   "opacity" : '1',
   "animation" : 'animnavbaraOpenOpa 0.5s'
   });
-  $('.menu-header').removeClass("nav_closed");
-  $('.menu-header').addClass("nav_open");
+  $('header').removeClass("nav_closed");
+  $('header').addClass("nav_open");
 }
 function closenavbar(){
   $('.navbar').css({
@@ -68,8 +65,8 @@ function closenavbar(){
   "opacity" : '0',
   "animation" : 'animnavbaracloseOpa 0.5s',
   });
-  $('.menu-header').addClass("nav_closed");
-  $('.menu-header').removeClass("nav_open");
+  $('header').addClass("nav_closed");
+  $('header').removeClass("nav_open");
     setTimeout( function() {
         closenavbardisplaynone();
     }, 500 );
