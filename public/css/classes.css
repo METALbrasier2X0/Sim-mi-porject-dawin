@@ -5,3 +5,7 @@
 .text_center{
     text-align: center;
 }
+
+.container{
+    margin:10px;
+}

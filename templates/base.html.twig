@@ -11,8 +11,9 @@
     </head>
     <body>
     <header>{{ source('./svg/logo.svg') }}</header> 
+    <div class="container">
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+    </div>
     <footer>
         <div class="flex_30">
             <h2>Services</h2>
@@ -33,5 +34,6 @@
             </ul>
         </div>
     </footer>
+    {% block javascripts %}{% endblock %}
     </body>
 </html>
