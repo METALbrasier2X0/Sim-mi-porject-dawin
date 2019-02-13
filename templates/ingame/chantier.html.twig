@@ -41,6 +41,7 @@
         height: 100%;
         position: fixed;
         right: 0px;
+        top: 0px;
         height: 100%;
         padding: 60px;
         }
@@ -62,20 +63,93 @@
      width:450px;
     }
     
+    .bar{
+    background-color: #001D4A;
+    width: 200px;
+    }
+
+    .stat1{
+         height:16px;
+         width:20%;
+         background-color:#ECA400;
+    }
+
+    .stat2{
+         height:16px;
+         width:50%;
+         background-color:#ECA400;
+    }
+
+    .stat3{
+         height:16px;
+         width:80%;
+         background-color:#ECA400;
+    }
+
+    .stat4{
+         height:16px;
+         width:100%;
+         background-color:#ECA400;
+    }
+
+    .meters{
+        display: flex;
+    }
+
+    .progress{
+        padding-right: 20px;
+    }
+    
   </style>
 
+{# partie gauche contenant l'image et les barres #}
 
 <div class="left_panel">
 
-    <div class="meters">
-    
+<div class="meters">
+
+    <div class="progress">
+        <h4>Satisfaction client</h4>
+            <div class="bar">
+                <div class="stat1"></div>
+            </div>
+        <p>20/100<p>
     </div>
+
+        <div class="progress">
+        <h4>Details</h4>
+            <div class="bar">
+                <div class="stat2"></div>
+            </div>
+        <p>50/100<p>
+    </div>
+
+    <div class="progress">
+        <h4>Réputation entreprise</h4>
+            <div class="bar">
+                <div class="stat3"></div>
+            </div>
+        <p>80/100<p>
+    </div>
+
+    <div class="progress">
+        <h4>Réputation personnelle</h4>
+            <div class="bar">
+                <div class="stat4"></div>
+            </div>
+        <p>100/100<p>
+    </div>
+
+</div>
+
+
 
     <div class="view-house">
         <img src="" >
     </div>
 </div>
 
+{# partie droite contenant les question, les réponses ainsi que les boutons#}
 
 <div class="right_panel">
 
@@ -100,4 +174,4 @@
 
 {% endblock %}
 
-{% block footer %} <div> <h2>timeline js</h2> </div>{% endblock %}
+{% block footer %} <div> <h2></h2> </div>{% endblock %}
