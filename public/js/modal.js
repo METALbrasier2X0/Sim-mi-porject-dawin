@@ -21,7 +21,7 @@ function open_modal(m,exit_on_click) {
     console.log(m.buttons);
     //Afficher chaque boutons
     m.buttons.forEach(element => {
-        var $input = $('<input type="button" value="'+ element.t +'" />');
+        var $input = $('<input type="button" class="button bBlue2" value="'+ element.t +'" />');
         $input.click(element.f);
         $input.appendTo($('.modal-footer'));
     });

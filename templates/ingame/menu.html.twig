@@ -1,0 +1,173 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+     <style>
+
+.button{
+      margin: 5px;
+      padding: 5px 30px;
+      font-family: 'Montserrat', sans-serif;
+      border-radius: 5px;
+      cursor: pointer;
+      
+    }
+    .button:active{
+      margin: 0px;
+      padding: 10px 35px;
+    }
+
+    .bOrange{
+      background-color: #ECA400;
+      border: solid 1px #ECA400;
+      color: white;
+      transition: 0.2s;
+      font-size: 35px;
+    }
+    .bOrange:hover{
+      background-color: white;
+      color: #ECA400;
+      transition: 0.2s;
+    }
+
+
+    .bBlue2{
+      background-color: #27476E;
+      border: solid 1px #27476E;
+      color: white;
+      transition: 0.2s;
+      font-size: 15px;
+      height: 50px;
+    }
+    .bBlue2:hover{
+      background-color: white;
+      color: #27476E;
+      transition: 0.2s;
+    }
+
+    .bBlue3{
+      background-color: #001D4A;
+      border: solid 1px #001D4A;
+      color: white;
+      transition: 0.2s;
+    }
+    .bBlue3:hover{
+      background-color: white;
+      color: #001D4A;
+      transition: 0.2s;
+    }
+
+
+
+
+    .Orangeb{
+      border: solid 1px #ECA400;
+      background-color: white;
+      color: #ECA400;
+      transition: 0.2s;
+    }
+    .Orangeb:hover{
+      background-color: #ECA400;
+      color: white;
+      transition: 0.2s;
+    }
+
+    .Blue1b{
+      border: solid 1px #006992;
+      background-color: white;
+      color: #006992;
+      transition: 0.2s;
+    }
+    .Blue1b:hover{
+      background-color: #006992;
+      color: white;
+      transition: 0.2s;
+    }
+
+    .Blue2b{
+      border: solid 1px #27476E;
+      background-color: white;
+      color: #27476E;
+      transition: 0.2s;
+    }
+    .Blue2b:hover{
+      background-color: #27476E;
+      color: white;
+      transition: 0.2s;
+    }
+
+    .Blue3b{
+      border: solid 1px #001D4A;
+      background-color: white;
+      color: #001D4A;
+      transition: 0.2s;
+    }
+    .Blue3b:hover{
+      background-color: #001D4A;
+      color: white;
+      transition: 0.2s;
+    }
+
+    .buttons-secondary{
+      display: flex;
+      width: 340px;
+      margin-top: 30px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .screen{
+      height: 700px;
+      padding: 80px;
+      text-align:center;
+    }
+
+       .screen > h2{
+      font-size: 100px;
+      margin-bottom: 50px;
+      font-family: 'Montserrat', sans-serif;
+    }
+</style>
+<div class="screen">
+
+    <h2>Sim mi</h2>
+
+    <input class="button bOrange" type="button" id="new" value="Nouvelle partie"></input>
+
+    <div class="buttons-secondary">
+     <input class="button bBlue2" type="button" id="option" value="Option"></input>
+     <input class="button bBlue2" type="button" id="stat" value="stat"></input>
+     <input class="button bBlue2" type="button" id="return" value="retour"></input>
+    </div>
+</div>
+{% endblock %}
+{% block javascripts %}
+
+    <script>
+    // Get the button that opens the modal
+    var btn = document.getElementById("option");
+
+    //actions des bouttons
+    var action1 = function(){
+        console.log("save");
+        close_modal();
+    }
+    var action2 = function(){
+        console.log("cancel");
+        close_modal();
+    }
+
+    //définir le message du modal
+    var message = {
+        header:"Options",
+        text:"<p>Soon</p>",
+        buttons: [{t:"Sauvgarder",f:action1},{t:"Annuler",f:action2}],
+    }
+
+    //le modal s'ouvre quand on clique sur le bouton
+    btn.onclick = function() {
+        open_modal(message,false);
+    }
+    </script>
+{% endblock %}
