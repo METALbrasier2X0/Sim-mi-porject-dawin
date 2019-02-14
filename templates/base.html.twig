@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="public/css/classes.css" type="text/css" />
         <link rel="stylesheet" href="public/css/header.css" type="text/css" />
         <link rel="stylesheet" href="public/css/footer.css" type="text/css" />
+        <link rel="stylesheet" href="public/css/modal.css" type="text/css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         {% block stylesheets %}{% endblock %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -19,6 +20,22 @@
     </header> 
     <div class="container">
         {% block body %}{% endblock %}
+    </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+         <!-- Modal content -->
+        <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>Modal Header</h2>
+        </div>
+        <div class="modal-body">
+            <p>Some text in the Modal Body</p>
+            <p>Some other text...</p>
+        </div>
+        <div class="modal-footer">
+        </div>
+        </div> 
     </div>
     <footer>
         <div class="flex_30">
@@ -40,6 +57,7 @@
             </ul>
         </div>
     </footer>
+    <script src="public/js/modal.js"></script>
     {% block javascripts %}{% endblock %}
     </body>
 </html>

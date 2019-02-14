@@ -27,5 +27,13 @@ class HomeController extends AbstractController
     {
         return $this->render('ingame/chantier.html.twig');
     }
+
+     /**
+     * @Route("/menu", name="menu")
+     */
+    public function menu()
+    {
+        return $this->render('ingame/menu.html.twig');
+    }
     
 }

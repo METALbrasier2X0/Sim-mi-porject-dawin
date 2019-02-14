@@ -10,6 +10,9 @@ header > a{
     text-decoration:none;
   }
 
+  /*------------------
+    Logo
+    ------------------*/
 header svg{
     height:100%;
     width:auto;
@@ -36,30 +39,14 @@ header:hover #path2223{
   transition: fill 1s, transform 1s;
 }
 
-/*header svg #g828{
-  transform: matrix(1, 0, 0, 1, -1, -1);
-    transition: transform 1s, fill 1s;
-}
-
-header svg:hover #g828{
-  transform: matrix(1, 0, 0, 1, -1, -1);
-    transition: transform 1s, fill 1s;
-}
-
-header svg #g832{
-    transform: matrix(1, 0, 0, 1, -1, -1);
-    transition: transform 1s, fill 1s;
-}
-
-header svg:hover #g832{
-    transform: matrix(1, 0, 0, 1, -1, -1);
-    transition: transform 1s, fill 1s;
-}*/
+  /*------------------
+    Nav
+    ------------------*/
 
 :root {
-    --ph1: 15px;
-    --ph2: 25px;
-    --ph3: 35px;
+    --ph1: 15px; /*Haut*/
+    --ph2: 25px; /*Milieu*/
+    --ph3: 35px; /*Bas*/
 }
 
   .menu-header{
