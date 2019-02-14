@@ -4,6 +4,9 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Etape;
+use App\Entity\Question;
+use App\Repository\EtapeRepository;
 
 class EtapeController extends Controller
 {
@@ -15,4 +18,11 @@ class EtapeController extends Controller
         return $this->render('etape/index.html.twig', ['controller_name' => 'EtapeController',]);
     }
 
+    /**
+     * @Route("/planification", name="planification")
+     */
+    public function planification(EtapeRepository $EtapeRepository)
+    {
+        return $this->render('ingame/planification.html.twig', ['Etapes' => $EtapeRepository->findAll()]);
+    }
 }
