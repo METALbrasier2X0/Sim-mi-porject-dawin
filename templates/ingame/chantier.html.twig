@@ -80,3 +80,37 @@
 {% endblock %}
 
 {% block footer %} <div> <h2></h2> </div>{% endblock %}
+
+{% block javascripts %}
+
+    <script>
+    // Get the button that opens the modal
+    var btn = document.getElementById("send");
+
+    //actions des bouttons
+    var action1 = function(){
+        console.log("continuer");
+        close_modal();
+    }
+
+    //définir le message du modal
+    var message = {
+        header:"test",
+        text:"Explication",
+        buttons: [{t:"Continuer",f:action1}],
+    }
+
+    
+
+    //le modal s'ouvre quand on clique sur le bouton
+    btn.onclick = function() {
+        if ($('#answer1')[0].checked){
+            message.header = "Bonne réponse!";
+        }
+        else {
+            message.header = "Mauvaise réponse!";
+        }
+        open_modal(message,false);
+    }
+    </script>
+{% endblock %}
