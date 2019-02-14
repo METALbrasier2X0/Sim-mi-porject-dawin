@@ -1,0 +1,112 @@
+html{
+    font: Montserrat;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.button{
+  margin: 5px;
+  padding: 5px 30px;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.button:active{
+  margin: 0px;
+  padding: 10px 35px;
+}
+
+.bOrange{
+  background-color: #ECA400;
+  border: solid 1px #ECA400;
+  color: white;
+  transition: 0.2s;
+  text-align: right;
+}
+.bOrange:hover{
+  background-color: white;
+  color: #ECA400;
+  transition: 0.2s;
+}
+.right_panel{
+    width: 35%;
+    background-color: #27476E;
+    color: white; 
+    height: 100%;
+    position: absolute;
+    right: 0px;
+    top: 100px;
+    height: 815px;
+    padding: 60px;
+    }
+
+.question{
+left: 50px;
+}
+
+.answer{
+     margin-top: 20px;
+}
+
+#send{
+position: absolute;
+  right: 50px;
+}
+
+.img_question>img{
+ width:450px;
+}
+
+.bar{
+background-color: #001D4A;
+width: 200px;
+}
+
+.stat1{
+     height:16px;
+     width:20%;
+     background-color:#ECA400;
+}
+
+.stat2{
+     height:16px;
+     width:50%;
+     background-color:#ECA400;
+}
+
+.stat3{
+     height:16px;
+     width:80%;
+     background-color:#ECA400;
+}
+
+.stat4{
+     height:16px;
+     width:100%;
+     background-color:#ECA400;
+}
+
+.meters{
+    display: flex;
+}
+
+.progress{
+    padding-right: 20px;
+}
+
+.center{
+      display: block;
+margin-left: auto;
+margin-right: auto;
+width: 50%;
+}
+
+.view{
+    display: block;
+    margin-top: 50px;
+    margin-right: 50%;
+    margin-left: 100px;
+    margin-bottom: 200px;
+    width: 900px;
+    position: relative;
+}
