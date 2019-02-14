@@ -142,3 +142,32 @@
     </div>
 </div>
 {% endblock %}
+{% block javascripts %}
+
+    <script>
+    // Get the button that opens the modal
+    var btn = document.getElementById("option");
+
+    //actions des bouttons
+    var action1 = function(){
+        console.log("save");
+        close_modal();
+    }
+    var action2 = function(){
+        console.log("cancel");
+        close_modal();
+    }
+
+    //définir le message du modal
+    var message = {
+        header:"Options",
+        text:"<p>Soon</p>",
+        buttons: [{t:"Sauvgarder",f:action1},{t:"Annuler",f:action2}],
+    }
+
+    //le modal s'ouvre quand on clique sur le bouton
+    btn.onclick = function() {
+        open_modal(message,false);
+    }
+    </script>
+{% endblock %}
