@@ -1,10 +1,41 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
+<button id="myBtn">Open Modal</button>
      
 {% for test in testTable %}
     {{ test.libelle }}
 
 {% endfor %}
 
+{% endblock %}
+
+{% block javascripts %}
+
+    <script>
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    //actions des bouttons
+    var action1 = function(){
+        console.log("faire un truc");
+    }
+    var action2 = function(){
+        console.log("faire un autre truc");
+        close_modal();
+    }
+
+    //définir le message du modal
+    var message = {
+        header:"Bonne réponse!",
+        text:"Vous avez une bonne réponse",
+        buttons: [{t:"Continuer",f:action1},{t:"Annuler",f:action2}],
+    }
+
+    //le modal s'ouvre quand on clique sur le bouton
+    btn.onclick = function() {
+        open_modal(message,false);
+    }
+    </script>
 {% endblock %}
