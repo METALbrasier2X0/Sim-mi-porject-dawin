@@ -29,14 +29,13 @@ html{
   transition: 0.2s;
 }
 .right_panel{
-    width: 35%;
+    /*width: 35%;*/
+    flex-basis: 35%;
     background-color: #27476E;
     color: white; 
     height: 100%;
-    position: absolute;
-    right: 0px;
-    top: 100px;
-    height: 815px;
+    /*top: 100px;*/
+    /*height: 815px;*/
     padding: 60px;
     }
 
@@ -49,8 +48,9 @@ left: 50px;
 }
 
 #send{
-position: absolute;
-  right: 50px;
+position: relative;
+  /*right: 50px;*/
+  float:right;
 }
 
 .img_question>img{
@@ -104,9 +104,9 @@ width: 50%;
 .view{
     display: block;
     margin-top: 50px;
-    margin-right: 50%;
+    /*margin-right: 50%;*/
     margin-left: 100px;
-    margin-bottom: 200px;
+    margin-bottom: 20px;
     width: 900px;
     position: relative;
 }

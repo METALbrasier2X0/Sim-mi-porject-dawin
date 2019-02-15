@@ -9,3 +9,11 @@
 .container{
     margin:10px;
 }
+
+.flex{
+    display: flex;
+}
+
+.spacearound {
+    justify-content: space-around;
+}
