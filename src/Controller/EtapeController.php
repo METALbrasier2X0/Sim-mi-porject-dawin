@@ -7,6 +7,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Etape;
 use App\Entity\Question;
 use App\Repository\EtapeRepository;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class EtapeController extends Controller
 {
@@ -23,6 +25,31 @@ class EtapeController extends Controller
      */
     public function planification(EtapeRepository $EtapeRepository)
     {
-        return $this->render('ingame/planification.html.twig', ['Etapes' => $EtapeRepository->findAll()]);
+        return $this->render('ingame/planification.html.twig',  ['Etapes' => $EtapeRepository->findAll()]);
     }
+
+    /**
+     * @Route("/chantier", name="chantier", methods={"GET","POST"})
+     */
+    public function chantier(Request $request)
+    {
+        
+        $blabla = $this->get('session')->get('varPlanification');
+        dump($this->get('session'));
+        dump($blabla);
+        dump('ffffffffffffffffffffffffff');
+
+        return $this->render('ingame/chantier.html.twig');
+    }
+
+    /**
+     * @Route("/chantierAjax", name="chantierAjax", methods={"GET","POST"})
+     */
+    public function chantierAjax(Request $request)
+    {
+        $this->get('session')->set('varPlanification', array($_GET['1'], $_GET['2'], $_GET['3'], $_GET['4'], $_GET['5']));
+        dump($this->get('session'));
+        return $this->render('ingame/chantierAjax.html.twig');
+    }
+
 }
