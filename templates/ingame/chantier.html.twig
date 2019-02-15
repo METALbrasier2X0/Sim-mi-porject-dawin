@@ -25,7 +25,7 @@
         <p>20/100<p>
     </div>
 
-        <div class="progress">
+        <div id="details" class="progress">
         <h4>Details</h4>
             <svg class="bar" width="200" height="16">
                     <rect class="bar_back" width="200" height="16" fill="#001D4A" />
@@ -34,7 +34,7 @@
         <p>50/100<p>
     </div>
 
-    <div class="progress">
+    <div id="pro" class="progress">
         <h4>Réputation entreprise</h4>
             <svg class="bar" width="200" height="16">
                     <rect class="bar_back" width="200" height="16" fill="#001D4A" />
@@ -43,7 +43,7 @@
         <p>80/100<p>
     </div>
 
-    <div class="progress">
+    <div id="perso" class="progress">
         <h4>Réputation personnelle</h4>
             <svg class="bar" width="200" height="16">
                     <rect class="bar_back" width="200" height="16" fill="#001D4A" />
@@ -108,9 +108,15 @@
 
     function updateUI() {
         var back = $("#satif .bar_back").attr("width");
-        console.log(back);
-        $("#satif .bar_front").attr("width",  rep.satif * back / 100);
-        $("#satif p")[0].innerHTML = rep.satif + "/100";
+        //console.log(back);
+        
+        //$("#satif .bar_front").animate({width: rep.satif * back / 100}, 5000, function() {});
+        
+
+        $.each(rep, function(index, value) {
+            $("#"+ index +" .bar_front").attr("width",  value * back / 100);
+            $("#"+ index +" p")[0].innerHTML = value + "/100";
+        }); 
     }
 
     updateUI();
