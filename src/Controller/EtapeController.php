@@ -31,15 +31,13 @@ class EtapeController extends Controller
     /**
      * @Route("/chantier", name="chantier", methods={"GET","POST"})
      */
-    public function chantier(Request $request)
+    public function chantier(Request $request, EtapeRepository $EtapeRepository)
     {
-        
-        $blabla = $this->get('session')->get('varPlanification');
-        dump($this->get('session'));
-        dump($blabla);
-        dump('ffffffffffffffffffffffffff');
 
-        return $this->render('ingame/chantier.html.twig');
+        $getPlanification = $this->get('session')->get('varPlanification');
+
+
+        return $this->render('ingame/chantier.html.twig', ['getPlanifications' => $EtapeRepository->findById($getPlanification)]);
     }
 
     /**
