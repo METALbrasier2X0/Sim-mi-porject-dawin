@@ -91,7 +91,15 @@ width: 200px;
 }
 
 .progress{
-    padding-right: 20px;
+    margin-right: 10px;
+    padding:5px;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+.progress:hover{
+  background: #006998;
+  color:white;
 }
 
 .center{
