@@ -1,7 +1,4 @@
-html{
-    font: Montserrat;
-    font-family: 'Montserrat', sans-serif;
-}
+
 
 .button{
   margin: 5px;
@@ -57,7 +54,7 @@ position: relative;
  width:450px;
 }
 
-.bar{
+/*.bar{
 background-color: #001D4A;
 width: 200px;
 }
@@ -84,14 +81,22 @@ width: 200px;
      height:16px;
      width:100%;
      background-color:#ECA400;
-}
+}*/
 
 .meters{
     display: flex;
 }
 
 .progress{
-    padding-right: 20px;
+    margin-right: 10px;
+    padding:5px;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+.progress:hover{
+  background: #006998;
+  color:white;
 }
 
 .center{
@@ -105,8 +110,10 @@ width: 50%;
     display: block;
     margin-top: 50px;
     /*margin-right: 50%;*/
-    margin-left: 100px;
+    /*margin-left: 100px;*/
+    margin-left:5%;
     margin-bottom: 20px;
-    width: 900px;
+    /*width: 900px;*/
+    width:90%;
     position: relative;
 }
