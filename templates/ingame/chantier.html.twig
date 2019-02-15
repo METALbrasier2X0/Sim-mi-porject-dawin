@@ -101,6 +101,15 @@
 
     function changeRep(id, nbr) {
         rep[id] += nbr;
+        if (rep[id] > 100) {rep[id] = 100};
+        if (rep[id] < 0) {
+            var message = {
+                header:"GAME OVER",
+                text:"Votre réputation n'est plus suffisante!",
+                buttons: [],
+            }
+            open_modal(message,false);
+        }
         updateUI();
     }
 
