@@ -2,7 +2,10 @@
 
 {% block title %}Chantier{% endblock %}
 
-{% block stylesheets %} <link rel="stylesheet" href="public/css/chantier.css" type="text/css" />{% endblock %}
+{% block stylesheets %} 
+    <link rel="stylesheet" href="public/css/chantier.css" type="text/css" />
+    <link rel="stylesheet" href="public/css/timeline.css" type="text/css" />
+{% endblock %}
 
 {% block body %}
     
@@ -77,12 +80,14 @@
 </div>
 
 </div>
+
+{{ block("timeline", "timeline.html.twig") }}
 {% endblock %}
 
 {% block footer %} <div> <h2></h2> </div>{% endblock %}
 
 {% block javascripts %}
-
+    <script src="public/js/timeline.js"></script>
     <script>
     // Get the button that opens the modal
     var btn = document.getElementById("send");
