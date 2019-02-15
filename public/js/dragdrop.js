@@ -285,8 +285,23 @@
          document.getElementById( "msg-error" ).innerHTML = "Vous devez choisir 5 élements";
        }
        else{
-         alert(choix);
+         saveChoix(choix);
        }
      //ajax validation
  });
+
+ function saveChoix(choix){
+   var myRequest = new XMLHttpRequest();
+   var link= '/chantierAjax?1='+choix[0]+'&2='+choix[1]+'&3='+choix[2]+'&4='+choix[3]+'&5='+choix[4];
+   myRequest.open('GET', link);
+   myRequest.send();
+   myRequest.onreadystatechange = function () {
+       if (myRequest.status === 200) {
+          document.location.href="/chantier";
+       }
+       else{
+         alert(myRequest.status);
+       }
+   };
+ }
  
