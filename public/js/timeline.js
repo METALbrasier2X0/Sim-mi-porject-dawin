@@ -27,6 +27,22 @@ function generateBigBar(position) {
 ======================= Creation des events =============================
 */
 
+var listeEvent = [];
+
+function timeline_init(_arr){
+    
+    _arr.forEach(element => {
+        var event = createNewEvent(element.name,1,element.description);
+        listeEvent.push(event);
+    });
+
+    eventActuel = 0;
+
+    //Chargement des events
+    organisEvent(listeEvent);
+    interac();
+}
+
 //Initialisation de l'event
 function createNewEvent(nom, time, description) {
     var obj = {};
@@ -38,9 +54,9 @@ function createNewEvent(nom, time, description) {
     return obj;
 }
 
-var listeEvent = [];
-var event = createNewEvent(test.titre,test.size,test.description);
-listeEvent.push(event)
+//var listeEvent = [];
+//var event = createNewEvent(test.titre,test.size,test.description);
+//listeEvent.push(event)
 
 // Creation des Events Nom , temps, description
 /*event1 = createNewEvent('event1', 10, 'fzehiohfzhehczjhczmhzh');
@@ -55,10 +71,9 @@ event8 = createNewEvent('event8', 20, 'fzehiohfhuezyhfozyeozyifozefiozeufiozeyhf
 //Tableau liste des evenements
 var listeEvent = [event1, event2, event3, event4, event5, event6, event7, event8];*/
 //Nombre d'event au total
-eventActuel = 0;
 
-//Chargement des events
-organisEvent(listeEvent);
+
+
 
 //Création des dispositions des events dans la timeLine
 function organisEvent(listeEvent) {
@@ -100,32 +115,35 @@ function getObjByName(name, listeEvents) {
     return objByName;
 }
 
-//Si le joueurs click sur une case -> affichage de la description sof si le niveau n'est pas encore passer
-$('.event').click('mousemove', function (e) {
-    var objectclick = getObjByName(this.id, listeEvent);
-    var i = 0;
-    var verification = false;
-    listeEvent.forEach(function (eventObjet) {
-        if (objectclick.nom == eventObjet.nom) {
-            if (i > eventActuel) {
-                verification = true;
+//Si le joueurs click sur une case -> affichage de la description sauf si le niveau n'est pas encore passé
+function interac(){
+    $('.event').click('mousemove', function (e) {
+        var objectclick = getObjByName(this.id, listeEvent);
+        var i = 0;
+        var verification = false;
+        listeEvent.forEach(function (eventObjet) {
+            if (objectclick.nom == eventObjet.nom) {
+                if (i > eventActuel) {
+                    verification = true;
+                }
             }
-        }
-        i++;
-    });
-
-    if (verification === false) {
-        organisationFrontEvents(listeEvent);
-        $(this).css({
-            "box-shadow": "0px 10px 12px #A4A4A4",
-            "top": "45%",
-            "color": "black",
-            "opacity": "1"
+            i++;
         });
-        let eventClick = getObjByName(this.id, listeEvent);
-        $('#timelineDescription').text(eventClick.description);
-    }
-});
+    
+        if (verification === false) {
+            organisationFrontEvents(listeEvent);
+            $(this).css({
+                "box-shadow": "0px 10px 12px #A4A4A4",
+                "top": "45%",
+                "color": "black",
+                "opacity": "1"
+            });
+            let eventClick = getObjByName(this.id, listeEvent);
+            $('#timelineDescription').text(eventClick.description);
+        }
+    });
+}
+
 
 //Click button suivant -> passe à la case/event suivante
 $('#suivButton').click('mousemove', function (e) {

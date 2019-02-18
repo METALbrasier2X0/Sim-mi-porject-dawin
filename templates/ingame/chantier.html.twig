@@ -92,10 +92,16 @@
 {% block footer %} <div> <h2></h2> </div>{% endblock %}
 
 {% block javascripts %}
-    <script>test = {titre:"test",size:10,description:"description"}</script>
     <script src="public/js/timeline.js"></script>
     <script>
     //TODO make js file
+
+    var etapes = [
+        {name:"test",description:"description1"},
+        {name:"test2",description:"description2"}
+    ]
+
+    timeline_init(etapes);
 
     var rep = {
         satif: 20,
