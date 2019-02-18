@@ -23,6 +23,10 @@ security:
                 login_path: connexion
                 check_path: connexion
 
+            logout:
+                path: deconnexion
+                target: test
+
             # activate different ways to authenticate
 
             # http_basic: true
