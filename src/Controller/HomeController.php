@@ -28,4 +28,5 @@ class HomeController extends AbstractController
         return $this->render('ingame/menu.html.twig');
     }
     
+    
 }
