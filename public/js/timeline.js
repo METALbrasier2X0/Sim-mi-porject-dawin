@@ -30,6 +30,8 @@ function generateBigBar(position) {
 var listeEvent = [];
 
 function timeline_init(_arr){
+
+    listeEvent = [];
     
     _arr.forEach(element => {
         var event = createNewEvent(element.name,1,element.description);

@@ -147,6 +147,12 @@
     //actions des bouttons
     var action1 = function(){
         console.log("continuer");
+        if (eventActuel == listeEvent.length - 1){
+            redirect("/menu");
+        }
+        else{
+            eventSuivant();
+        }
         close_modal();
     }
 
