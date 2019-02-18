@@ -3,7 +3,8 @@ header{
     width:100%;
     background-color: #006992;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 header > a{
@@ -13,9 +14,18 @@ header > a{
   /*------------------
     Logo
     ------------------*/
-header svg{
-    height:100%;
-    width:auto;
+
+.logo {
+  height:100%;
+  flex-grow: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.logo > svg{
+  height:100%;
+  width:auto;
+  
 }
 
 header path{
