@@ -41,11 +41,21 @@ class UserController extends Controller
 
             $manager->persist($user);
             $manager->flush();
+
+            return $this->redirectToRoute('connexion');
         }
 
         return $this->render('user/registration.html.twig',[
             'form' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/connexion", name="connexion")
+     */ 
+    public function login(){
+    
+        return $this->render('user/login.html.twig');
     }
 
 }

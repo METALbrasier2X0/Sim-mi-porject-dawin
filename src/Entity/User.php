@@ -7,9 +7,14 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @UniqueEntity(
+ * fields = {"email"},
+ * message = "l'email que vous avez indiqué est déjà utilisé !"
+ * )
  */
 class User implements UserInterface
 {
@@ -22,6 +27,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Email
      */
     private $email;
 
@@ -75,12 +81,12 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getRoles(): ?int
+    public function getRoles()
     {
-        return $this->roles;
+        return ['ROLE_USER'];
     }
 
-    public function setRoles(?int $roles): self
+    public function setRoles( $roles): self
     {
         $this->roles = $roles;
 
