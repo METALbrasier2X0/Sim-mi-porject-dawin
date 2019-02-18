@@ -2,14 +2,16 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -30,8 +32,13 @@ class User
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min="8", minMessage="Votre mot de passe doit faire 8 caractères minimum")
      */
     private $password;
+
+       /**
+     * @Assert\EqualTo(propertyPath="password", message="Votre de mot de passe doit être le même")
+     */
 
     public $confirm_password;
 
@@ -134,4 +141,8 @@ class User
 
         return $this;
     }
+
+    public function eraseCredentials(){}
+        
+    public function getSalt(){}
 }
