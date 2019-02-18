@@ -17,7 +17,10 @@
     </head>
     <body>
     <header>
-        {{ source('./svg/logo.svg') }}
+        {% block navbar %}{% endblock %}
+        <div class="logo"> 
+            {{ source('./svg/logo.svg') }}
+        </div>
         {{ block("menu", "menu.html.twig") }}
     </header> 
     <div class="container">

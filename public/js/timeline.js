@@ -38,8 +38,12 @@ function createNewEvent(nom, time, description) {
     return obj;
 }
 
+var listeEvent = [];
+var event = createNewEvent(test.titre,test.size,test.description);
+listeEvent.push(event)
+
 // Creation des Events Nom , temps, description
-event1 = createNewEvent('event1', 10, 'fzehiohfzhehczjhczmhzh');
+/*event1 = createNewEvent('event1', 10, 'fzehiohfzhehczjhczmhzh');
 event2 = createNewEvent('event2', 10, 'fzehiohfzhehczjhhuiyzediozahzugzaugdgpuaczmhzh');
 event3 = createNewEvent('event3', 10, 'fzehiohfzhehczjhc');
 event4 = createNewEvent('event4', 50, 'fzehiohfzhehcueyioezaezjhczmhzh');
@@ -49,7 +53,7 @@ event6 = createNewEvent('event6', 10, 'fzehiohfzhehyiezigezuydueuydzyeuifuizefez
 event7 = createNewEvent('event7', 10, 'fzeh');
 event8 = createNewEvent('event8', 20, 'fzehiohfhuezyhfozyeozyifozefiozeufiozeyhf');
 //Tableau liste des evenements
-var listeEvent = [event1, event2, event3, event4, event5, event6, event7, event8];
+var listeEvent = [event1, event2, event3, event4, event5, event6, event7, event8];*/
 //Nombre d'event au total
 eventActuel = 0;
 
