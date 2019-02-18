@@ -33,10 +33,18 @@ class User
      */
     private $password;
 
+    public $confirm_password;
+
+
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Score", mappedBy="isUser")
      */
     private $listScore;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $username;
 
     public function __construct()
     {
@@ -111,6 +119,18 @@ class User
                 $listScore->setIsUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUsername(): ?string
+    {
+        return $this->username;
+    }
+
+    public function setUsername(string $username): self
+    {
+        $this->username = $username;
 
         return $this;
     }
