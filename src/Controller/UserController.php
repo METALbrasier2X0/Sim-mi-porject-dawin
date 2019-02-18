@@ -58,4 +58,9 @@ class UserController extends Controller
         return $this->render('user/login.html.twig');
     }
 
+      /**
+     * @Route("/deconnexion", name="deconnexion")
+     */ 
+    public function logout(){}
+
 }
