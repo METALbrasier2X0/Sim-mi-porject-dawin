@@ -75,10 +75,10 @@
     </div>
 
     <div class="answer">
-        <input type="checkbox" id="answer1" value="newsletter"> Réponse 1</input> <br>
-        <input type="checkbox" id="answer2" value="newsletter"> Réponse 2</input> <br>
-        <input type="checkbox" id="answer3" value="newsletter"> Réponse 3</input> <br>
-        <input type="checkbox" id="answer4" value="newsletter"> Réponse 4</input> <br>
+        <input type="radio" name="group1" id="answer1" value="newsletter"> Réponse 1</input> <br>
+        <input type="radio" name="group1" id="answer2" value="newsletter"> Réponse 2</input> <br>
+        <input type="radio" name="group1" id="answer3" value="newsletter"> Réponse 3</input> <br>
+        <input type="radio" name="group1" id="answer4" value="newsletter"> Réponse 4</input> <br>
 
         <input class="button bOrange" type="button" id="send" value="Envoyer"></input>
     </div>
@@ -92,10 +92,16 @@
 {% block footer %} <div> <h2></h2> </div>{% endblock %}
 
 {% block javascripts %}
-    <script>test = {titre:"test",size:10,description:"description"}</script>
     <script src="public/js/timeline.js"></script>
     <script>
     //TODO make js file
+
+    var etapes = [
+        {name:"test",description:"description1"},
+        {name:"test2",description:"description2"}
+    ]
+
+    timeline_init(etapes);
 
     var rep = {
         satif: 20,
@@ -141,6 +147,12 @@
     //actions des bouttons
     var action1 = function(){
         console.log("continuer");
+        if (eventActuel == listeEvent.length - 1){
+            redirect("/menu");
+        }
+        else{
+            eventSuivant();
+        }
         close_modal();
     }
 

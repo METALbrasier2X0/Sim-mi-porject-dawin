@@ -85,6 +85,8 @@ width: 200px;
 
 .meters{
     display: flex;
+    align-self: center;
+    margin: 10px;
 }
 
 .progress{
@@ -114,6 +116,6 @@ width: 50%;
     margin-left:5%;
     margin-bottom: 20px;
     /*width: 900px;*/
-    width:90%;
+    /*width:90%;*/
     position: relative;
 }
