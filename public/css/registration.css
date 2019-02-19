@@ -1,0 +1,48 @@
+.conteneur{
+  width: auto;
+  margin: 0 auto;
+  margin-bottom: 250px;
+  text-align: center;
+}
+.titre{
+  text-align: center;
+  font-size: 30px;
+  padding: 50px 0px;
+}
+.conteneur label{
+  display: block;
+}
+.conteneur input{
+  margin: 10px 0px 30px 0px;
+}
+.conteneur input[type=text] , .conteneur input[type=password] , .conteneur input[type=email]{
+  border: solid 1px grey;
+  border-radius: 3px;
+  padding: 3px 5px;
+}
+.button{
+  margin: 5px;
+  padding: 5px 30px;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.button:active{
+  margin: 0px;
+  padding: 10px 35px;
+}
+.bOrange{
+  background-color: #ECA400;
+  border: solid 1px #ECA400;
+  color: white;
+  transition: 0.2s;
+}
+.bOrange:hover{
+  background-color: white;
+  color: #ECA400;
+  transition: 0.2s;
+}
+a{
+  font-size: 12px;
+}
