@@ -135,3 +135,13 @@
     left: 50%;
   }
 }
+
+
+.conteneur-cgu{
+  width: 1024px;
+  margin: 30px auto;
+}
+.conteneur-cgu h2{
+  font-size: 40px;
+  padding: 30px 0px;
+}
