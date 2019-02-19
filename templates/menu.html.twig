@@ -16,10 +16,21 @@
         <hr/>
         <a class="linknav" href="#">Options</a>
         <hr/>
+        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+
         <a class="linknav" href="{{path('deconnexion')}}">Se déconnecter</a>
         <hr/>
+        {% endif %}
+
+         {% if is_granted('IS_AUTHENTICATED_REMEMBERED') ==false %}
+
          <a class="linknav" href="{{path('connexion')}}">Se connecter</a>
         <hr/>
+
+            <a class="linknav" href="{{path('inscription')}}">S'inscrire</a>
+        <hr/>
+
+         {% endif %}
         <a class="linknav" href="#">Quitter</a>
         <hr/>
       </div>

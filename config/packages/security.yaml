@@ -1,4 +1,7 @@
 security:
+
+    access_denied_url: /connexion
+
     encoders:
          App\Entity\User:
               algorithm: bcrypt
@@ -22,6 +25,7 @@ security:
             form_login:
                 login_path: connexion
                 check_path: connexion
+                
 
             logout:
                 path: deconnexion
@@ -40,3 +44,7 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/deconnexion, allow_if: "is_authenticated() and !is_anonymous()" }
+        - { path: ^/chantier, allow_if: "is_authenticated() and !is_anonymous()" }
+        - { path: ^/planification, allow_if: "is_authenticated() and !is_anonymous()" }
+        - { path: ^/menu, allow_if: "is_authenticated() and !is_anonymous()" }
