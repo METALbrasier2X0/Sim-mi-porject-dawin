@@ -46,3 +46,10 @@
 a{
   font-size: 12px;
 }
+input[type=checkbox]{
+  margin : 0 0 3px 0;
+}
+
+.conteneur_check{
+  margin: 20px 0px 30px 20px
+}
