@@ -26,7 +26,7 @@ class UserController extends Controller
     /**
      * @Route("/inscription", name="inscription")
      */ 
-    public function registration(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder)
+    public function registration(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder, \Swift_Mailer $mailer)
     {
         $user = new User();
 
@@ -41,6 +41,8 @@ class UserController extends Controller
 
             $manager->persist($user);
             $manager->flush();
+
+            $this->email_registration($user->getUsername(),$user->getEmail(),$mailer);
 
             return $this->redirectToRoute('connexion');
         }
@@ -62,5 +64,32 @@ class UserController extends Controller
      * @Route("/deconnexion", name="deconnexion")
      */ 
     public function logout(){}
+
+    public function email_registration($name, $email, \Swift_Mailer $mailer){
+        $message = (new \Swift_Message('Vous vous êtes inscris sur SIM'))
+            ->setFrom('simdawin@gmail.com')
+            ->setTo($email)
+            ->setBody(
+                $this->renderView(
+                    // templates/emails/registration.html.twig
+                    'email/registration.html.twig',
+                    ['name' => $name]
+                ),
+                'text/html'
+            )
+            /*
+            * If you also want to include a plaintext version of the message
+            ->addPart(
+                $this->renderView(
+                    'emails/registration.txt.twig',
+                    ['name' => $name]
+                ),
+                'text/plain'
+            )
+            */
+            ;
+
+        $mailer->send($message);
+    }
 
 }
