@@ -20,6 +20,14 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig', ['testTable' => $testTableRepository->findAll()]);
     }
 
+    /**
+     * @Route("/cgu", name="cgu")
+     */
+    public function cgu(testTableRepository $testTableRepository)
+    {
+        return $this->render('home/cgu.html.twig');
+    }
+
      /**
      * @Route("/menu", name="menu")
      */
@@ -27,6 +35,6 @@ class HomeController extends AbstractController
     {
         return $this->render('ingame/menu.html.twig');
     }
-    
-    
+
+
 }
