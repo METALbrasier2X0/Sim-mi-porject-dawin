@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Confirm{% endblock %}
+
+{% block body %}
+
+<style>
+.message{
+margin: 40px auto 640px auto;
+text-align:center;
+}
+
+</style>
+
+<p class="message"> Vous êtes bien enregistré, veuillez vous connecter ici <a href="{{ url('connexion') }}">connexion</a>.</p>
+
+{% endblock %}

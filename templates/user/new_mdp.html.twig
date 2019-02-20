@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mot de passe oublié {% endblock %}
+
+{% block body %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="public/css/registration.css" type="text/css"/>
+{% endblock %}
+<div class="conteneur">
+  <h2 class="titre"> Mot de passe oublié </h2>
+  <form action="{{path('connexion')}}" method="post">
+
+    <div class="form-group">
+      <label>Nouveau mot de passe : </label>
+        <input placeholder="Mot de passe..." required name="_password" type="password" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Confirmer mot de passe : </label>
+        <input placeholder="Mot de passe..." required name="_password" type="password" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <input type="hidden" name="_target_path" value="{{ path('menu') }}" />
+        <button type="submit" class="button bOrange">reset mot de passe</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

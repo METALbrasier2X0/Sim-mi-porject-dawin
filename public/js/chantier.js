@@ -1,6 +1,9 @@
 var etapes = [
-    {name:"test",description:"description1"},
-    {name:"test2",description:"description2"}
+    {name:"test",description:"description1",bonne:1,question:"question1",reponses:["1-1","1-2","1-3","1-4"]},
+    {name:"test2",description:"description2",bonne:2,question:"question2",reponses:["2-1","2-2","2-3","2-4"]},
+    {name:"test3",description:"description3",bonne:3,question:"question3",reponses:["3-1","3-2","3-3","3-4"]},
+    {name:"test4",description:"description4",bonne:4,question:"question4",reponses:["4-1","4-2","4-3","4-4"]},
+    {name:"test5",description:"description5",bonne:1,question:"question5",reponses:["5-1","5-2","5-3","5-4"]}
 ]
 
 timeline_init(etapes);
@@ -19,16 +22,16 @@ function changeRep(id, nbr) {
         var message = {
             header:"GAME OVER",
             text:"Votre réputation n'est plus suffisante!",
-            buttons: [],
+            buttons: [{t:"Retour",f:function(){redirect("/menu");}}],
         }
         open_modal(message,false);
     }
-    updateUI();
+    update_UI_rep();
 }
 
 
 
-function updateUI() {
+function update_UI_rep() {
     var back = $("#satif .bar_back").attr("width");
     //console.log(back);
     
@@ -41,7 +44,17 @@ function updateUI() {
     }); 
 }
 
-updateUI();
+function update_UI_question() {
+    var current = etapes[eventActuel];
+    $(".question h3")[0].innerHTML = current.question;
+    $.each($(".answer label"),function(index,element){
+        console.log(element);
+        element.textContent = current.reponses[index];
+    });
+}
+
+update_UI_rep();
+update_UI_question();
 
 // Get the button that opens the modal
 var btn = document.getElementById("send");
@@ -50,10 +63,11 @@ var btn = document.getElementById("send");
 var action1 = function(){
     console.log("continuer");
     if (eventActuel == listeEvent.length - 1){
-        redirect("/menu");
+        redirect("/menu"); //TODO changer vers stat
     }
     else{
         eventSuivant();
+        update_UI_question();
     }
     close_modal();
 }
@@ -69,11 +83,18 @@ var message = {
 
 //le modal s'ouvre quand on clique sur le bouton
 btn.onclick = function() {
-    if ($('#answer1')[0].checked){
+    var bonne = '#answer' + etapes[eventActuel].bonne;
+    if ($('.answer input:checked').length == 0) {
+        alert("Please check one");
+        return;
+    }
+    if ($(bonne)[0].checked){
         message.header = "Bonne réponse!";
+        changeRep("perso",+10);
     }
     else {
         message.header = "Mauvaise réponse!";
+        changeRep("pro",-20);
     }
     open_modal(message,false);
 }

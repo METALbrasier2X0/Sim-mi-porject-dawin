@@ -27,8 +27,13 @@ class UserController extends Controller
 
     /**
      * @Route("/inscription", name="inscription")
+<<<<<<< HEAD
      */
     public function registration(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder)
+=======
+     */ 
+    public function registration(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder, \Swift_Mailer $mailer)
+>>>>>>> 4cee9fd4fae1c255daeb060f0f999efb406ace3c
     {
         $user = new User();
 
@@ -44,7 +49,9 @@ class UserController extends Controller
             $manager->persist($user);
             $manager->flush();
 
-            return $this->redirectToRoute('connexion');
+            $this->email_registration($user->getUsername(),$user->getEmail(),$mailer);
+
+            return $this->redirectToRoute('confirm');
         }
 
         return $this->render('user/registration.html.twig',[
@@ -72,4 +79,56 @@ class UserController extends Controller
      */
     public function logout(){}
 
+
+    public function email_registration($name, $email, \Swift_Mailer $mailer){
+        $message = (new \Swift_Message('Vous vous êtes inscris sur SIM'))
+            ->setFrom('simdawin@gmail.com')
+            ->setTo($email)
+            ->setBody(
+                $this->renderView(
+                    // templates/emails/registration.html.twig
+                    'email/registration.html.twig',
+                    ['name' => $name]
+                ),
+                'text/html'
+            )
+            /*
+            * If you also want to include a plaintext version of the message
+            ->addPart(
+                $this->renderView(
+                    'emails/registration.txt.twig',
+                    ['name' => $name]
+                ),
+                'text/plain'
+            )
+            */
+            ;
+
+        $mailer->send($message);
+    }
+
+
+              /**
+     * @Route("/confirm", name="confirm")
+     */ 
+    public function confirm(){
+    
+        return $this->render('user/confirm.html.twig');
+    }
+
+      /**
+     * @Route("/reset_mdp", name="reset_mdp")
+     */ 
+    public function reset(){
+    
+        return $this->render('user/reset_mdp.html.twig');
+    }
+
+    /**
+     * @Route("/new_mdp", name="new_mdp")
+     */ 
+    public function new_mdp(){
+    
+        return $this->render('user/new_mdp.html.twig');
+    }
 }
