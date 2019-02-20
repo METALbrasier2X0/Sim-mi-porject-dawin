@@ -101,4 +101,20 @@ class UserController extends Controller
     
         return $this->render('user/confirm.html.twig');
     }
+
+      /**
+     * @Route("/reset_mdp", name="reset_mdp")
+     */ 
+    public function reset(){
+    
+        return $this->render('user/reset_mdp.html.twig');
+    }
+
+    /**
+     * @Route("/new_mdp", name="new_mdp")
+     */ 
+    public function new_mdp(){
+    
+        return $this->render('user/new_mdp.html.twig');
+    }
 }

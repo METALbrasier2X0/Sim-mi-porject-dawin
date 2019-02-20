@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mot de passe oublié {% endblock %}
+
+{% block body %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="public/css/registration.css" type="text/css"/>
+{% endblock %}
+<div class="conteneur">
+  <h2 class="titre"> Mot de passe oublié </h2>
+  <form action="{{path('connexion')}}" method="post">
+
+    <div class="form-group">
+        <label>Votre E-mail : </label>
+        <input placeholder="email..." required name="_username" type="text" class="form-control">
+    </div>
+
+
+
+
+
+    <div class="form-group">
+        <input type="hidden" name="_target_path" value="{{ path('menu') }}" />
+        <button type="submit" class="button bOrange">Envoyer email</button>
+    </div>
+  </form>
+</div>
+{% endblock %}
