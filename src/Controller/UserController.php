@@ -27,13 +27,8 @@ class UserController extends Controller
 
     /**
      * @Route("/inscription", name="inscription")
-<<<<<<< HEAD
      */
-    public function registration(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder)
-=======
-     */ 
     public function registration(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder, \Swift_Mailer $mailer)
->>>>>>> 4cee9fd4fae1c255daeb060f0f999efb406ace3c
     {
         $user = new User();
 
@@ -110,25 +105,25 @@ class UserController extends Controller
 
               /**
      * @Route("/confirm", name="confirm")
-     */ 
+     */
     public function confirm(){
-    
+
         return $this->render('user/confirm.html.twig');
     }
 
       /**
      * @Route("/reset_mdp", name="reset_mdp")
-     */ 
+     */
     public function reset(){
-    
+
         return $this->render('user/reset_mdp.html.twig');
     }
 
     /**
      * @Route("/new_mdp", name="new_mdp")
-     */ 
+     */
     public function new_mdp(){
-    
+
         return $this->render('user/new_mdp.html.twig');
     }
 }
