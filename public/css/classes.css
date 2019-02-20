@@ -17,3 +17,7 @@
 .spacearound {
     justify-content: space-around;
 }
+
+.separator {
+    margin-top: 10px;
+}
