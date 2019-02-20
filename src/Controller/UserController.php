@@ -44,7 +44,7 @@ class UserController extends Controller
 
             $this->email_registration($user->getUsername(),$user->getEmail(),$mailer);
 
-            return $this->redirectToRoute('connexion');
+            return $this->redirectToRoute('confirm');
         }
 
         return $this->render('user/registration.html.twig',[
@@ -64,6 +64,7 @@ class UserController extends Controller
      * @Route("/deconnexion", name="deconnexion")
      */ 
     public function logout(){}
+
 
     public function email_registration($name, $email, \Swift_Mailer $mailer){
         $message = (new \Swift_Message('Vous vous êtes inscris sur SIM'))
@@ -92,4 +93,12 @@ class UserController extends Controller
         $mailer->send($message);
     }
 
+
+              /**
+     * @Route("/confirm", name="confirm")
+     */ 
+    public function confirm(){
+    
+        return $this->render('user/confirm.html.twig');
+    }
 }
