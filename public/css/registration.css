@@ -19,6 +19,8 @@
   border: solid 1px grey;
   border-radius: 3px;
   padding: 3px 5px;
+  width: 300px;
+  text-align:center;
 }
 .button{
   margin: 5px;
