@@ -1,20 +1,61 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ScoreController!{% endblock %}
+{% block title %}Score du joueur{% endblock %}
 
 {% block body %}
 <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+
+.conteneur-stats{
+  width:1024px;
+  margin: 30px auto;
+}
+.conteneur-stats h2{
+  font-size: 40px;
+  padding: 50px 0px;
+}
+.stats{
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  border-bottom: solid 1px grey;
+  display: flex;
+  text-align: center;
+  color: #154360;
+}
+.stats > .case{
+  width: 25%;
+}
+.c1{
+  background-color:  #eaf2f8 ;
+}
+.casetitre{
+  font-size: 20px;
+}
+
 </style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<div class="conteneur-stats">
+  <a href="{{path('menu')}}"> Retour au menu </a>
+  <h2>
+    Statistique
+  </h2>
+  <div class="stats casetitre">
+    <div class="case c1">Date</div>
+    <div class="case c1">satisfaction Client</div>
+    <div class="case c1">reputation Personnel</div>
+    <div class="case c1">reputation Entreprise</div>
+  </div>
+  {% for Score in Scores %}
+  <div class="stats">
+    <div class="case c1">{{Score.creation_partie |date('d-m-Y') }}</div>
+    <div class="case">{{Score.satisfactionC}}</div>
+    <div class="case">{{Score.reputationP}}</div>
+    <div class="case">{{Score.reputationE}}</div>
+  </div>
+  {% endfor %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/UnPc/Desktop/SIM_MI8porject/projet dawin/src/Controller/ScoreController.php'|file_link(0) }}">src/Controller/ScoreController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/UnPc/Desktop/SIM_MI8porject/projet dawin/templates/score/index.html.twig'|file_link(0) }}">templates/score/index.html.twig</a></code></li>
-    </ul>
 </div>
+
+
+
 {% endblock %}

@@ -13,9 +13,9 @@
         </div>
         <hr/>
                 <a class="linknav" href="{{path('menu')}}">Jouer</a>
-        <hr/>
+        <hr/> 
 
-                <a class="linknav" href="#">Stats</a>
+                <a class="linknav" href="{{path('score')}}">Stats</a>
         <hr/>
 
         {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
@@ -29,7 +29,6 @@
 
          <a class="linknav" href="{{path('connexion')}}">Se connecter</a>
         <hr/>
-
             <a class="linknav" href="{{path('inscription')}}">S'inscrire</a>
         <hr/>
 

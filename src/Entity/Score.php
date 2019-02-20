@@ -82,12 +82,12 @@ class Score
         return $this;
     }
 
-    public function getCreationPartie(): ?\DateTimeInterface
+    public function getCreation_Partie(): ?\DateTimeInterface
     {
         return $this->creation_partie;
     }
 
-    public function setCreationPartie(\DateTimeInterface $creation_partie): self
+    public function setCreation_Partie(\DateTimeInterface $creation_partie): self
     {
         $this->creation_partie = $creation_partie;
 

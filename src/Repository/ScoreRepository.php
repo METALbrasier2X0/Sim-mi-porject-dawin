@@ -5,6 +5,11 @@ namespace App\Repository;
 use App\Entity\Score;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+use App\Entity\Etape;
+use App\Entity\User;
+use App\Repository\EtapeRepository;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @method Score|null find($id, $lockMode = null, $lockVersion = null)
@@ -17,6 +22,15 @@ class ScoreRepository extends ServiceEntityRepository
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, Score::class);
+    }
+
+    public function findAllScoreByUser(int $user)
+    {
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT p FROM App:Score p WHERE p.isUser ='.$user.''
+            )
+            ->getResult();
     }
 
     // /**
