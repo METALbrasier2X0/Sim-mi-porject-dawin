@@ -1,10 +1,40 @@
-var etapes = [
+/*var etapes = [
     {name:"test",description:"description1",bonne:1,question:"question1",reponses:["1-1","1-2","1-3","1-4"]},
     {name:"test2",description:"description2",bonne:2,question:"question2",reponses:["2-1","2-2","2-3","2-4"]},
     {name:"test3",description:"description3",bonne:3,question:"question3",reponses:["3-1","3-2","3-3","3-4"]},
     {name:"test4",description:"description4",bonne:4,question:"question4",reponses:["4-1","4-2","4-3","4-4"]},
     {name:"test5",description:"description5",bonne:1,question:"question5",reponses:["5-1","5-2","5-3","5-4"]}
-]
+]*/
+
+function loadQuestion(idQuestion){
+    var myRequest = new XMLHttpRequest();
+    var link= '/loadQuestion?question='+idQuestion;
+    myRequest.open('GET', link);
+    myRequest.send();
+    myRequest.onreadystatechange = function () {
+        if (myRequest.status === 200) {
+            console.log(myRequest);
+          /*var str = myRequest.responseText;
+          var reponseQuestion = str.split('##');
+          var reponseReponses = reponseQuestion[3].split('||');
+          $('.question h3').text(reponseQuestion[0]);
+          $('#imgQuestion').attr("src", reponseQuestion[1]);
+          $('.answer').html('');
+          var compteur = 0;
+          reponseReponses.forEach(function (reponseReponse) {
+            if(reponseReponse != "\n"){
+              $('.answer').append('<input type="radio" name="group'+compteur+'" id="answer' + compteur + '" value="newsletter"> '+reponseReponse+'</input> <br>');
+              compteur = compteur + 1;
+            }
+
+          });*/
+
+        }
+        else{
+          alert("Error");
+        }
+    };
+  }
 
 timeline_init(etapes);
 
@@ -46,11 +76,12 @@ function update_UI_rep() {
 
 function update_UI_question() {
     var current = etapes[eventActuel];
-    $(".question h3")[0].innerHTML = current.question;
+    /*$(".question h3")[0].innerHTML = current.question;
     $.each($(".answer label"),function(index,element){
         console.log(element);
         element.textContent = current.reponses[index];
-    });
+    });*/
+    loadQuestion(current.id);
 }
 
 update_UI_rep();

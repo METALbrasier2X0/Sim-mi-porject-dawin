@@ -12,6 +12,7 @@ use App\Repository\QuestionRepository;
 use App\Repository\ReponseRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class EtapeController extends Controller
 {
@@ -59,7 +60,12 @@ class EtapeController extends Controller
     public function loadQuestion(Request $request, QuestionRepository $QuestionRepository, ReponseRepository $ReponseRepository)
     {
       $id = $_GET['question'];
-      return $this->render('ingame/loadQuestion.html.twig', ['getQuestions' => $QuestionRepository->findById($id) , 'getReponses' => $ReponseRepository->findBy(["id_question" => $id])]);
+
+      return new JsonResponse(array(
+          'getQuestions' => $QuestionRepository->findById($id),
+          'getReponses' => $ReponseRepository->findBy(["id_question" => $id])
+        ));
+      //return $this->render('ingame/loadQuestion.html.twig', ['getQuestions' => $QuestionRepository->findById($id) , 'getReponses' => $ReponseRepository->findBy(["id_question" => $id])]);
     }
 
 }

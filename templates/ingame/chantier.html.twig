@@ -94,43 +94,16 @@
 
 
 {% block javascripts %}
+    <script>
+        var etapes = [];
+        {% for planification in getPlanifications %}
+            etapes.push({
+                id:"{{planification.id}}",
+                name:"{{planification.name}}",
+                description:"{{planification.description}}"
+            });
+        {% endfor %}
+    </script>
     <script src="public/js/timeline.js"></script>
     <script src="public/js/chantier.js"></script>
-    <script>
-    var question = [];
-    {% for getPlanification in getPlanifications %}
-      question.push({{ getPlanification.id }})
-    {% endfor %}
-
-    loadQuestion(question[0]);
-    function loadQuestion(idQuestion){
-      var myRequest = new XMLHttpRequest();
-      var link= '/loadQuestion?question='+idQuestion;
-      myRequest.open('GET', link);
-      myRequest.send();
-      myRequest.onreadystatechange = function () {
-          if (myRequest.status === 200) {
-            var str = myRequest.responseText;
-            var reponseQuestion = str.split('##');
-            var reponseReponses = reponseQuestion[3].split('||');
-            $('.question h3').text(reponseQuestion[0]);
-            $('#imgQuestion').attr("src", reponseQuestion[1]);
-            $('.answer').html('');
-            var compteur = 0;
-            reponseReponses.forEach(function (reponseReponse) {
-              if(reponseReponse != "\n"){
-                $('.answer').append('<input type="radio" name="group'+compteur+'" id="answer'compteur'" value="newsletter"> '+reponseReponse+'</input> <br>');
-                compteur = compteur + 1;
-              }
-
-            });
-
-          }
-          else{
-            alert("Error");
-          }
-      };
-    }
-
-    </script>
 {% endblock %}
