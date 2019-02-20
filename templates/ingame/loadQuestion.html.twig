@@ -1,0 +1,7 @@
+{% for getQuestion in getQuestions %}
+  {{ getQuestion.name }}##{{ getQuestion.urlimage }}##{{getQuestion.textreponse}}
+{% endfor %}
+##
+{% for getReponse in getReponses %}
+||{{ getReponse.libelle }}
+{% endfor %}

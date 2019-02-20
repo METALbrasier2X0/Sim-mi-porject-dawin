@@ -6,9 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Etape;
 use App\Entity\Question;
+use App\Entity\Reponse;
 use App\Repository\EtapeRepository;
+use App\Repository\QuestionRepository;
+use App\Repository\ReponseRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class EtapeController extends Controller
 {
@@ -48,6 +52,20 @@ class EtapeController extends Controller
         $this->get('session')->set('varPlanification', array($_GET['1'], $_GET['2'], $_GET['3'], $_GET['4'], $_GET['5']));
         dump($this->get('session'));
         return $this->render('ingame/chantierAjax.html.twig');
+    }
+
+    /**
+     * @Route("/loadQuestion", name="loadQuestion", methods={"GET","POST"})
+     */
+    public function loadQuestion(Request $request, QuestionRepository $QuestionRepository, ReponseRepository $ReponseRepository)
+    {
+      $id = $_GET['question'];
+
+      return new JsonResponse(array(
+          'getQuestions' => $QuestionRepository->findById($id),
+          'getReponses' => $ReponseRepository->findBy(["id_question" => $id])
+        ));
+      //return $this->render('ingame/loadQuestion.html.twig', ['getQuestions' => $QuestionRepository->findById($id) , 'getReponses' => $ReponseRepository->findBy(["id_question" => $id])]);
     }
 
 }
