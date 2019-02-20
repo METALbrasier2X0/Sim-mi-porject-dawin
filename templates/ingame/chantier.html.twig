@@ -53,7 +53,7 @@
 
 <div class="flex spacearound">
 {# partie gauche contenant l'image et les barres #}
-
+ {{dump(getPlanifications)}}
 <div class="left_panel">
 
 
@@ -80,8 +80,9 @@
         <input type="radio" name="group1" id="answer3" value="three"> <label for="answer3"> Réponse 3</label> <br>
         <input type="radio" name="group1" id="answer4" value="four"> <label for="answer4"> Réponse 4</label> <br>
 
-        <input class="button bOrange" type="button" id="send" value="Envoyer"></input>
+
     </div>
+    <input class="button bOrange" type="button" id="send" value="Envoyer"></input>
 </div>
 
 </div>
@@ -122,15 +123,35 @@
                 $('.answer').append('<input type="radio" name="group'+compteur+'" id="answer'compteur'" value="newsletter"> '+reponseReponse+'</input> <br>');
                 compteur = compteur + 1;
               }
-
             });
-
           }
           else{
             alert("Error");
           }
       };
     }
+
+    $('#send').click('mousemove', function (e) {
+        var solution = getSolution(question[0]);
+        alert(solution);
+    });
+
+    function getSolution(idQuestion){
+      var myRequest = new XMLHttpRequest();
+      var link= '/loadSolution?question='+idQuestion;
+      myRequest.open('GET', link);
+      myRequest.send();
+      myRequest.onreadystatechange = function () {
+          if (myRequest.status === 200) {
+            return myRequest.responseText;
+          }
+          else{
+            alert("Error");
+          }
+      };
+    }
+
+
 
     </script>
 {% endblock %}

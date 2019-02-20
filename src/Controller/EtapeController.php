@@ -7,9 +7,11 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Etape;
 use App\Entity\Question;
 use App\Entity\Reponse;
+use App\Entity\Solution;
 use App\Repository\EtapeRepository;
 use App\Repository\QuestionRepository;
 use App\Repository\ReponseRepository;
+use App\Repository\SolutionRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -36,10 +38,8 @@ class EtapeController extends Controller
      */
     public function chantier(Request $request, EtapeRepository $EtapeRepository)
     {
-
         $getPlanification = $this->get('session')->get('varPlanification');
-
-
+        var_dump($getPlanification);
         return $this->render('ingame/chantier.html.twig', ['getPlanifications' => $EtapeRepository->findById($getPlanification)]);
     }
 
@@ -62,4 +62,12 @@ class EtapeController extends Controller
       return $this->render('ingame/loadQuestion.html.twig', ['getQuestions' => $QuestionRepository->findById($id) , 'getReponses' => $ReponseRepository->findBy(["id_question" => $id])]);
     }
 
+    /**
+     * @Route("/loadSolution", name="loadSolution", methods={"GET","POST"})
+     */
+    public function loadSolution(Request $request, SolutionRepository $SolutionRepository)
+    {
+      $id = $_GET['question'];
+      return $this->render('ingame/loadSolution.html.twig', ['getSolutions' => $SolutionRepository->findBy(["id_question" => $id])]);
+    }
 }
