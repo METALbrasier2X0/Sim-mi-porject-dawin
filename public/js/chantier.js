@@ -6,28 +6,26 @@
     {name:"test5",description:"description5",bonne:1,question:"question5",reponses:["5-1","5-2","5-3","5-4"]}
 ]*/
 
+var current_q = {};
+
 function loadQuestion(idQuestion){
     var myRequest = new XMLHttpRequest();
     var link= '/loadQuestion?question='+idQuestion;
+    console.log(link);
     myRequest.open('GET', link);
     myRequest.send();
     myRequest.onreadystatechange = function () {
         if (myRequest.status === 200) {
-            console.log(myRequest);
-          /*var str = myRequest.responseText;
-          var reponseQuestion = str.split('##');
-          var reponseReponses = reponseQuestion[3].split('||');
-          $('.question h3').text(reponseQuestion[0]);
-          $('#imgQuestion').attr("src", reponseQuestion[1]);
-          $('.answer').html('');
-          var compteur = 0;
-          reponseReponses.forEach(function (reponseReponse) {
-            if(reponseReponse != "\n"){
-              $('.answer').append('<input type="radio" name="group'+compteur+'" id="answer' + compteur + '" value="newsletter"> '+reponseReponse+'</input> <br>');
-              compteur = compteur + 1;
-            }
-
-          });*/
+            current_q = JSON.parse(myRequest.response);
+            console.log(current_q);
+            $('.question h3').text(current_q.question.name);
+            $('#imgQuestion').attr("src", current_q.question.urlImage);
+            $('.radios').html('');
+            current_q.reponses[0].forEach(function (value,index) {
+                index++;
+                if (value.includes("!")){current_q.bonne = index; value = value.split("!")[0]};
+                $('.radios').append('<input type="radio" name="group1" id="answer' + index + '" value="newsletter"> '+value+'</input> <br>');
+            });
 
         }
         else{
@@ -114,17 +112,20 @@ var message = {
 
 //le modal s'ouvre quand on clique sur le bouton
 btn.onclick = function() {
-    var bonne = '#answer' + etapes[eventActuel].bonne;
+    //var bonne = '#answer' + etapes[eventActuel].bonne ? etapes[eventActuel].bonne : 1;
+    var bonne = '#answer'+current_q.bonne;
     if ($('.answer input:checked').length == 0) {
         alert("Please check one");
         return;
     }
     if ($(bonne)[0].checked){
         message.header = "Bonne réponse!";
+        message.text = current_q.question.textReponse;
         changeRep("perso",+10);
     }
     else {
         message.header = "Mauvaise réponse!";
+        message.text = current_q.question.textReponse;
         changeRep("pro",-20);
     }
     open_modal(message,false);
