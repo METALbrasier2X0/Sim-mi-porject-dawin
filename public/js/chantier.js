@@ -1,6 +1,9 @@
 var etapes = [
-    {name:"test",description:"description1"},
-    {name:"test2",description:"description2"}
+    {name:"test",description:"description1",bonne:1},
+    {name:"test2",description:"description2",bonne:2},
+    {name:"test3",description:"description3",bonne:3},
+    {name:"test4",description:"description4",bonne:4},
+    {name:"test5",description:"description5",bonne:1}
 ]
 
 timeline_init(etapes);
@@ -50,7 +53,7 @@ var btn = document.getElementById("send");
 var action1 = function(){
     console.log("continuer");
     if (eventActuel == listeEvent.length - 1){
-        redirect("/menu");
+        redirect("/menu"); //TODO changer vers stat
     }
     else{
         eventSuivant();
@@ -69,11 +72,14 @@ var message = {
 
 //le modal s'ouvre quand on clique sur le bouton
 btn.onclick = function() {
-    if ($('#answer1')[0].checked){
+    var bonne = '#answer' + etapes[eventActuel].bonne;
+    if ($(bonne)[0].checked){
         message.header = "Bonne réponse!";
+        changeRep("perso",+10);
     }
     else {
         message.header = "Mauvaise réponse!";
+        changeRep("pro",-20);
     }
     open_modal(message,false);
 }
