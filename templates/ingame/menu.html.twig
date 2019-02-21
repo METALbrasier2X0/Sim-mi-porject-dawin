@@ -60,6 +60,9 @@
 
 
 
+    .title-game{
+      font-family: 'm6x11', sans-serif;
+    }
 
     .Orangeb{
       border: solid 1px #ECA400;
@@ -115,6 +118,7 @@
       margin-top: 30px;
       margin-left: auto;
       margin-right: auto;
+      justify-content: space-around;
     }
 
     .screen{
@@ -128,17 +132,20 @@
       margin-bottom: 50px;
       font-family: 'Montserrat', sans-serif;
     }
+    a{
+      text-decoration:none;
+    }
 </style>
 <div class="screen">
 
-    <h2>Sim mi</h2>
+    <h2 class="title-game">Sim mi</h2>
 
     <a href="{{path('planification')}}"><input  class="button bOrange" type="button" id="new" value="Nouvelle partie"></input>
 
     <div class="buttons-secondary">
-     <input class="button bBlue2" type="button" id="option" value="Option"></input>
-     <input class="button bBlue2" type="button" id="stat" value="stat"></input>
-     <input class="button bBlue2" type="button" id="return" value="retour"></input>
+     
+     <a href="{{path('score')}}"><input class="button bBlue2" type="button" id="stat" value="Statistique"></input>
+     <a href="{{path('deconnexion')}}"><input class="button bBlue2" type="button" id="return" value="Deconnexion "></input>
     </div>
 </div>
 {% endblock %}

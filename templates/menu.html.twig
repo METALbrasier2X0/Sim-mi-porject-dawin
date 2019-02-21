@@ -15,10 +15,13 @@
                 <a class="linknav" href="{{path('menu')}}">Jouer</a>
         <hr/> 
 
-                <a class="linknav" href="{{path('score')}}">Stats</a>
-        <hr/>
+
 
         {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+
+
+        <a class="linknav" href="{{path('score')}}">Stats</a>
+        <hr/>
 
         <a class="linknav" href="{{path('deconnexion')}}">Se déconnecter</a>
         <hr/>
