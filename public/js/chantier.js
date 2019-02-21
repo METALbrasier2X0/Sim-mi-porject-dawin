@@ -1,11 +1,3 @@
-/*var etapes = [
-    {name:"test",description:"description1",bonne:1,question:"question1",reponses:["1-1","1-2","1-3","1-4"]},
-    {name:"test2",description:"description2",bonne:2,question:"question2",reponses:["2-1","2-2","2-3","2-4"]},
-    {name:"test3",description:"description3",bonne:3,question:"question3",reponses:["3-1","3-2","3-3","3-4"]},
-    {name:"test4",description:"description4",bonne:4,question:"question4",reponses:["4-1","4-2","4-3","4-4"]},
-    {name:"test5",description:"description5",bonne:1,question:"question5",reponses:["5-1","5-2","5-3","5-4"]}
-]*/
-
 var current_q = {};
 
 function loadQuestion(idQuestion){
@@ -38,7 +30,6 @@ timeline_init(etapes);
 
 var rep = {
     satif: 20,
-    details: 50,
     perso: 80,
     pro: 100,
 } 
@@ -47,9 +38,10 @@ function changeRep(id, nbr) {
     rep[id] += nbr;
     if (rep[id] > 100) {rep[id] = 100};
     if (rep[id] <= 0) {
+        var txt = $("#"+id+" h4")[0].innerHTML;
         var message = {
             header:"GAME OVER",
-            text:"Votre réputation n'est plus suffisante!",
+            text:"Votre "+txt+" n'est plus suffisante!",
             buttons: [{t:"Retour",f:function(){redirect("/menu");}}],
         }
         open_modal(message,false);
