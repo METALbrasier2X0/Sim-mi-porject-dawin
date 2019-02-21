@@ -63,10 +63,6 @@ class Question
      */
     private $url_image;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\DocHelp", mappedBy="id_question", orphanRemoval=true)
-     */
-    private $documents;
 
     public function __construct()
     {
@@ -212,34 +208,4 @@ class Question
         return $this;
     }
 
-    /**
-     * @return Collection|DocHelp[]
-     */
-    public function getDocuments(): Collection
-    {
-        return $this->documents;
-    }
-
-    public function addDocument(DocHelp $document): self
-    {
-        if (!$this->documents->contains($document)) {
-            $this->documents[] = $document;
-            $document->setIdQuestion($this);
-        }
-
-        return $this;
-    }
-
-    public function removeDocument(DocHelp $document): self
-    {
-        if ($this->documents->contains($document)) {
-            $this->documents->removeElement($document);
-            // set the owning side to null (unless already changed)
-            if ($document->getIdQuestion() === $this) {
-                $document->setIdQuestion(null);
-            }
-        }
-
-        return $this;
-    }
 }
