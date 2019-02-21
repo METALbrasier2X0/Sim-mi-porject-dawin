@@ -137,14 +137,16 @@ btn.onclick = function() {
         return;
     }
     if ($(bonne)[0].checked){
-        message.header = "Bonne réponse!";
+        message.header = "Bonne réponse! <i class='fas fa-laugh-beam'></i>";
+        message.class = "good_answer";
         message.text = current_q.question.textReponse;
         changeRep("satif",current_q.question.satis);
         changeRep("perso",current_q.question.perso);
         changeRep("pro",current_q.question.entre);
     }
     else {
-        message.header = "Mauvaise réponse!";
+        message.header = "Mauvaise réponse! <i class='fas fa-sad-tear'></i>";
+        message.class = "bad_answer";
         message.text = current_q.question.textReponse;
         changeRep("satif",-current_q.question.satis);
         changeRep("perso",-current_q.question.perso);

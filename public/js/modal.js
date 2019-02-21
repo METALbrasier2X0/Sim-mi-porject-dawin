@@ -14,6 +14,10 @@ span.onclick = function() {
 function open_modal(m,exit_on_click) {
     //titre
     $('.modal-header').children("h2").html(m.header);
+    $('.modal-header').children("h2").removeClass();
+    if (m.class){
+      $('.modal-header').children("h2").addClass(m.class);
+    }
     //corps
     $('.modal-body').html(m.text);
     //$('.modal-footer').children("h3").html(footer);
