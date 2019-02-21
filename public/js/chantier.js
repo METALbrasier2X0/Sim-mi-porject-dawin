@@ -59,7 +59,7 @@ function update_UI_rep() {
     
 
     $.each(rep, function(index, value) {
-        console.log(index);
+        //console.log(index);
         $("#"+ index +" .bar_front").attr("width",  value * back / 100);
         $("#"+ index +" p")[0].innerHTML = value + "/100";
     }); 
