@@ -1,13 +1,22 @@
 var current_q = {};
 
+var pleasewait = {
+    header:"Chargement",
+    text:"Veuillez patienter...",
+    buttons: []
+}
+
+
 function loadQuestion(idQuestion){
     var myRequest = new XMLHttpRequest();
     var link= '/loadQuestion?question='+idQuestion;
     console.log(link);
     myRequest.open('GET', link);
     myRequest.send();
+    open_modal(pleasewait);
     myRequest.onreadystatechange = function () {
-        if (myRequest.status === 200) {
+        if (myRequest.status === 200 && myRequest.readyState == 4) {
+            close_modal();
             current_q = JSON.parse(myRequest.response);
             console.log(current_q);
             $('.question h3').text(current_q.question.name);
@@ -21,7 +30,9 @@ function loadQuestion(idQuestion){
 
         }
         else{
-          alert("Error");
+            if (myRequest.status != 200){
+                alert("Error");
+            }
         }
     };
   }
@@ -85,13 +96,27 @@ var btn = document.getElementById("send");
 var action1 = function(){
     console.log("continuer");
     if (eventActuel == listeEvent.length - 1){
-        redirect("/menu"); //TODO changer vers stat
+        finish();
     }
     else{
         eventSuivant();
         update_UI_question();
     }
     close_modal();
+}
+
+function finish(){
+    close_modal();
+    open_modal(pleasewait,false);
+    $.post( 
+        "saveScore",
+        { rep: rep },
+        function(data) {
+           console.log(data);
+           redirect("/score");
+        }
+     );
+    
 }
 
 //définir le message du modal

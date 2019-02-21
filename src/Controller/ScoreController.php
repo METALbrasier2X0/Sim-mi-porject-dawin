@@ -24,14 +24,15 @@ class ScoreController extends Controller
     /**
      * @Route("/saveScore", name="saveScore", methods={"GET","POST"})
      */
-    public function saveScore(ObjectManager $em)
+    public function saveScore(Request $request,ObjectManager $em)
     {
         $temp = new Score();
+        $data = $request->request->all();
 
         $temp->setIsUser($this->getUser());
-        $temp->setSatisfactionC(25);
-        $temp->setReputationP(10);
-        $temp->setReputationE(10);
+        $temp->setSatisfactionC($data["rep"]["satif"]);
+        $temp->setReputationP($data["rep"]["perso"]);
+        $temp->setReputationE($data["rep"]["pro"]);
         $temp->setCreation_Partie(new \DateTime());
 
 
