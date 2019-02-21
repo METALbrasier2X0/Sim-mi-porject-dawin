@@ -10,14 +10,14 @@
 {% block navbar %}
 <div class="meters">
 
-    <div id="satif" class="progress">
-        <h4>Satisfaction client</h4>
-                <svg class="bar" width="200" height="16">
-                    <rect class="bar_back" width="200" height="16" fill="#001D4A" />
-                    <rect class="bar_front" width="100" height="16" fill="#ECA400" />
-                </svg>
-        <p>20/100<p>
-    </div>
+  <div id="pro" class="progress">
+      <h4>Réputation entreprise</h4>
+          <svg class="bar" width="200" height="16">
+                  <rect class="bar_back" width="200" height="16" fill="#001D4A" />
+                  <rect class="bar_front" width="100" height="16" fill="#ECA400" />
+              </svg>
+      <p>80/100<p>
+  </div>
 
     <!--    <div id="details" class="progress">
         <h4>Details</h4>
@@ -76,10 +76,10 @@
 
     <div class="answer">
         <div class="radios">
-            <input type="radio" name="group1" id="answer1" value="one"> <label for="answer1"> Réponse 1</label> <br>
-            <input type="radio" name="group1" id="answer2" value="two"> <label for="answer2"> Réponse 2</label> <br>
-            <input type="radio" name="group1" id="answer3" value="three"> <label for="answer3"> Réponse 3</label> <br>
-            <input type="radio" name="group1" id="answer4" value="four"> <label for="answer4"> Réponse 4</label> <br>
+            <input type="radio" name="group1" id="answer1" value="one"> <label class="caseCheck case1" for="answer1"><i class="fas fa-check"></i></label><label for="answer1"> Réponse 1</label> <br>
+            <input type="radio" name="group1" id="answer2" value="two"> <label class="caseCheck case2" for="answer2"><i class="fas fa-check"></i></label><label for="answer2"> Réponse 2</label> <br>
+            <input type="radio" name="group1" id="answer3" value="three"> <label class="caseCheck case3" for="answer3"><i class="fas fa-check"></i></label><label for="answer3"> Réponse 3</label> <br>
+            <input type="radio" name="group1" id="answer4" value="four"> <label class="caseCheck case4" for="answer4"><i class="fas fa-check"></i></label><label for="answer4"> Réponse 4</label> <br>
         </div>
         <input class="button bOrange" type="button" id="send" value="Envoyer"></input>
     </div>
