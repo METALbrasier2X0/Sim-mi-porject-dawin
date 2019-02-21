@@ -157,6 +157,10 @@ header:hover #path2223{
     width: 100%;
     line-height: 75px;
     text-align: center;
+
+    text-align: left;
+    padding-left: 10px;
+    color:grey;
   }
   .navbar > div > div{
     position: fixed;
