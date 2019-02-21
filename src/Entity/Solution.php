@@ -26,6 +26,11 @@ class Solution
      */
     private $id_question;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $url_image;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -51,6 +56,18 @@ class Solution
     public function setIdQuestion(?Question $id_question): self
     {
         $this->id_question = $id_question;
+
+        return $this;
+    }
+
+    public function getUrlImage(): ?string
+    {
+        return $this->url_image;
+    }
+
+    public function setUrlImage(?string $url_image): self
+    {
+        $this->url_image = $url_image;
 
         return $this;
     }
