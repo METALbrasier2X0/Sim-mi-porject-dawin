@@ -16,7 +16,7 @@ function loadQuestion(idQuestion){
             current_q.reponses[0].forEach(function (value,index) {
                 index++;
                 if (value.includes("!")){current_q.bonne = index; value = value.split("!")[0]};
-                $('.radios').append('<input type="radio" name="group1" id="answer' + index + '" value="newsletter"> '+value+'</input> <br>');
+                $('.radios').append('<input type="radio" name="group1" id="answer' + index + '" value="newsletter"> <label class="caseCheck case'+index+'" for="answer'+ index +'"><i class="fas fa-check"></i></label><label for="answer'+index+'">'+value+'</input></label> <br>');
             });
 
         }
