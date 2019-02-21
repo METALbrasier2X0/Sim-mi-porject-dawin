@@ -19,4 +19,12 @@ class ScoreController extends Controller
     {
         return $this->render('score/index.html.twig', ['Scores' => $ScoreRepository->findAllScoreByUser($this->getUser()->getId())]);
     }
+
+    /**
+     * @Route("/saveScore", name="saveScore", methods={"GET","POST"})
+     */
+    public function saveScore()
+    {
+        return;
+    }
 }
