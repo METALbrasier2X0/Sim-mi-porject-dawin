@@ -29,7 +29,7 @@
     /*width: 35%;*/
     flex-basis: 35%;
     background-color: #27476E;
-    color: white; 
+    color: white;
     height: 100%;
     /*top: 100px;*/
     /*height: 815px;*/
@@ -53,7 +53,58 @@ position: relative;
 .img_question>img{
  width:450px;
 }
-
+.bar{
+  border-radius: 10px;
+}
+input[name=group1]{
+  display: none;
+}
+.caseCheck{
+  height: 15px;
+  width: 15px;
+  border-radius: 3px;
+  display: inline-block;
+  border: solid 1px white;
+  margin: 0px 10px;
+  position: relative;
+}
+.caseCheck > i{
+  padding: 0;
+  margin: 0;
+  color: #DAC400;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(-90deg);
+  opacity: 0;
+  font-size: 16px;
+  transition: 0.3s;
+}
+.radios > input:checked + .caseCheck > i{
+  transform: rotate(0deg);
+  opacity: 1;
+  transition: 0.3s;
+}
+/*#answer1:checked ~ .case1 > i{
+  transform: rotate(0deg);
+  opacity: 1;
+  transition: 0.3s;
+}
+#answer2:checked ~ .case2 > i{
+  transform: rotate(0deg);
+  opacity: 1;
+  transition: 0.3s;
+}
+#answer3:checked ~ .case3 > i{
+  transform: rotate(0deg);
+  opacity: 1;
+  transition: 0.3s;
+}
+#answer4:checked ~ .case4 > i{
+  transform: rotate(0deg);
+  opacity: 1;
+  transition: 0.3s;
+}*/
 /*.bar{
 background-color: #001D4A;
 width: 200px;

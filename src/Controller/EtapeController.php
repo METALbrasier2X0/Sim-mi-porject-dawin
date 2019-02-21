@@ -69,7 +69,14 @@ class EtapeController extends Controller
         }
 
       return new JsonResponse(array(
-          'question' => array('name'=> $question->getName(),'urlImage'=> $question->getUrlImage(),'textReponse'=> $question->getTextReponse()),
+          'question' => array(
+              'name'=> $question->getName(),
+              'urlImage'=> $question->getUrlImage(),
+              'textReponse'=> $question->getTextReponse(),
+              'satis'=>$question->getSatisfactionC(),
+              'entre'=>$question->getReputationE(),
+              'perso'=>$question->getReputationP(),
+            ),
           'reponses' => array($jsonReponse)
         ));
       //return $this->render('ingame/loadQuestion.html.twig', ['getQuestions' => $QuestionRepository->findById($id) , 'getReponses' => $ReponseRepository->findBy(["id_question" => $id])]);

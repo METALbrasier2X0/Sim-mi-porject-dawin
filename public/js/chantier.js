@@ -1,13 +1,22 @@
 var current_q = {};
 
+var pleasewait = {
+    header:"Chargement",
+    text:"Veuillez patienter...",
+    buttons: []
+}
+
+
 function loadQuestion(idQuestion){
     var myRequest = new XMLHttpRequest();
     var link= '/loadQuestion?question='+idQuestion;
     console.log(link);
     myRequest.open('GET', link);
     myRequest.send();
+    open_modal(pleasewait);
     myRequest.onreadystatechange = function () {
-        if (myRequest.status === 200) {
+        if (myRequest.status === 200 && myRequest.readyState == 4) {
+            close_modal();
             current_q = JSON.parse(myRequest.response);
             console.log(current_q);
             $('.question h3').text(current_q.question.name);
@@ -16,12 +25,14 @@ function loadQuestion(idQuestion){
             current_q.reponses[0].forEach(function (value,index) {
                 index++;
                 if (value.includes("!")){current_q.bonne = index; value = value.split("!")[0]};
-                $('.radios').append('<input type="radio" name="group1" id="answer' + index + '" value="newsletter"> '+value+'</input> <br>');
+                $('.radios').append('<input type="radio" name="group1" id="answer' + index + '" value="newsletter"> <label class="caseCheck case'+index+'" for="answer'+ index +'"><i class="fas fa-check"></i></label><label for="answer'+index+'">'+value+'</input></label> <br>');
             });
 
         }
         else{
-          alert("Error");
+            if (myRequest.status != 200){
+                alert("Error");
+            }
         }
     };
   }
@@ -29,7 +40,7 @@ function loadQuestion(idQuestion){
 timeline_init(etapes);
 
 var rep = {
-    satif: 20,
+    satif: 40,
     perso: 80,
     pro: 100,
 } 
@@ -59,6 +70,7 @@ function update_UI_rep() {
     
 
     $.each(rep, function(index, value) {
+        //console.log(index);
         $("#"+ index +" .bar_front").attr("width",  value * back / 100);
         $("#"+ index +" p")[0].innerHTML = value + "/100";
     }); 
@@ -84,13 +96,27 @@ var btn = document.getElementById("send");
 var action1 = function(){
     console.log("continuer");
     if (eventActuel == listeEvent.length - 1){
-        redirect("/menu"); //TODO changer vers stat
+        finish();
     }
     else{
         eventSuivant();
         update_UI_question();
     }
     close_modal();
+}
+
+function finish(){
+    close_modal();
+    open_modal(pleasewait,false);
+    $.post( 
+        "saveScore",
+        { rep: rep },
+        function(data) {
+           console.log(data);
+           redirect("/score");
+        }
+     );
+    
 }
 
 //définir le message du modal
@@ -113,12 +139,16 @@ btn.onclick = function() {
     if ($(bonne)[0].checked){
         message.header = "Bonne réponse!";
         message.text = current_q.question.textReponse;
-        changeRep("perso",+10);
+        changeRep("satif",current_q.question.satis);
+        changeRep("perso",current_q.question.perso);
+        changeRep("pro",current_q.question.entre);
     }
     else {
         message.header = "Mauvaise réponse!";
         message.text = current_q.question.textReponse;
-        changeRep("pro",-20);
+        changeRep("satif",-current_q.question.satis);
+        changeRep("perso",-current_q.question.perso);
+        changeRep("pro",-current_q.question.entre);
     }
     open_modal(message,false);
 }
