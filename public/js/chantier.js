@@ -29,7 +29,7 @@ function loadQuestion(idQuestion){
 timeline_init(etapes);
 
 var rep = {
-    satif: 20,
+    satif: 40,
     perso: 80,
     pro: 100,
 } 
@@ -59,6 +59,7 @@ function update_UI_rep() {
     
 
     $.each(rep, function(index, value) {
+        console.log(index);
         $("#"+ index +" .bar_front").attr("width",  value * back / 100);
         $("#"+ index +" p")[0].innerHTML = value + "/100";
     }); 
@@ -113,12 +114,16 @@ btn.onclick = function() {
     if ($(bonne)[0].checked){
         message.header = "Bonne réponse!";
         message.text = current_q.question.textReponse;
-        changeRep("perso",+10);
+        changeRep("satif",current_q.question.satis);
+        changeRep("perso",current_q.question.perso);
+        changeRep("pro",current_q.question.entre);
     }
     else {
         message.header = "Mauvaise réponse!";
         message.text = current_q.question.textReponse;
-        changeRep("pro",-20);
+        changeRep("satif",-current_q.question.satis);
+        changeRep("perso",-current_q.question.perso);
+        changeRep("pro",-current_q.question.entre);
     }
     open_modal(message,false);
 }
