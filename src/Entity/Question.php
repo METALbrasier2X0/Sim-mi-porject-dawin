@@ -39,7 +39,7 @@ class Question
     private $reputationE;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="integer", length=255)
      */
     private $reputationP;
 
@@ -121,12 +121,12 @@ class Question
         return $this;
     }
 
-    public function getReputationP(): ?string
+    public function getReputationP(): ?int
     {
         return $this->reputationP;
     }
 
-    public function setReputationP(string $reputationP): self
+    public function setReputationP(int $reputationP): self
     {
         $this->reputationP = $reputationP;
 
