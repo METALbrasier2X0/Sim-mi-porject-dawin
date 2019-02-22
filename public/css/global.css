@@ -2,3 +2,13 @@ html{
     font: Montserrat;
     font-family: 'Montserrat', sans-serif;
 }
+
+@font-face {
+    font-family: m6x11;
+    src: url(./../fonts/m6x11.ttf);
+  }
+
+  @font-face {
+    font-family: smart;
+    src: url(./../fonts/Smart.ttf);
+  }
