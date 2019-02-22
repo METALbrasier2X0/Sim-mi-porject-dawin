@@ -25,6 +25,14 @@
   color: #ECA400;
   transition: 0.2s;
 }
+.left_panel{
+  max-width: 50vw;
+}
+
+.left_panel img{
+  min-width: 700px;
+}
+
 .right_panel{
     /*width: 35%;*/
     flex-basis: 35%;
