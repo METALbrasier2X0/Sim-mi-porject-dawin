@@ -152,6 +152,7 @@ btn.onclick = function() {
         message.header = "Bonne réponse! <i class='fas fa-laugh-beam'></i>";
         message.class = "good_answer";
         message.text = current_q.question.textReponse;
+        $("#"+listeEvent[eventActuel].nom_t).css({"background-color":"green"});
         changeRep("satif",current_q.question.satis);
         changeRep("perso",current_q.question.perso);
         changeRep("pro",current_q.question.entre);
@@ -160,6 +161,7 @@ btn.onclick = function() {
         message.header = "Mauvaise réponse! <i class='fas fa-sad-tear'></i>";
         message.class = "bad_answer";
         message.text = current_q.question.textReponse;
+        $("#"+listeEvent[eventActuel].nom_t).css({"background-color":"red"});
         changeRep("satif",-current_q.question.satis);
         changeRep("perso",-current_q.question.perso);
         changeRep("pro",-current_q.question.entre);
