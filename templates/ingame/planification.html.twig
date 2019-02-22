@@ -131,7 +131,7 @@ ul.sortable {
             <div>
               <h3>Liste des Events</h3>
               <ul id="list-1" class="sortable">
-                {% for Etape in Etapes %}
+                {% for Etape in Etapes|shuffle %}
                 <li id="item-{{ Etape.id }}" class="box">{{Etape.name}}</li>
                 {% endfor %}
               </ul>
