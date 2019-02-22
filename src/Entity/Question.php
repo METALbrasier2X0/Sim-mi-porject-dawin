@@ -63,6 +63,11 @@ class Question
      */
     private $url_image;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $url_image_reponse;
+
 
     public function __construct()
     {
@@ -204,6 +209,18 @@ class Question
     public function setUrlImage(?string $url_image): self
     {
         $this->url_image = $url_image;
+
+        return $this;
+    }
+
+    public function getUrlImageReponse(): ?string
+    {
+        return $this->url_image_reponse;
+    }
+
+    public function setUrlImageReponse(?string $url_image_reponse): self
+    {
+        $this->url_image_reponse = $url_image_reponse;
 
         return $this;
     }
