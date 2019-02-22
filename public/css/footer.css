@@ -11,3 +11,20 @@ footer h2{
     font-size: 120%;
     margin-bottom: 10px;
 }
+
+h2{
+    font-weight: bold;
+}
+
+a{
+    color:white;
+    text-decoration: none;
+}
+
+a:visited{
+    color:white
+}
+
+a:hover{
+    color:#ECA400;
+}
