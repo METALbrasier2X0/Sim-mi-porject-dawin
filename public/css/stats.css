@@ -1,0 +1,26 @@
+.conteneur-stats{
+  width:1024px;
+  margin: 30px auto;
+}
+.conteneur-stats h2{
+  font-size: 40px;
+  padding: 50px 0px;
+}
+.stats{
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  border-bottom: solid 1px grey;
+  display: flex;
+  text-align: center;
+  color: #154360;
+}
+.stats > .case{
+  width: 25%;
+}
+.c1{
+  background-color:  #eaf2f8 ;
+}
+.casetitre{
+  font-size: 20px;
+}
