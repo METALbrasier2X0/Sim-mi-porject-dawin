@@ -6,6 +6,13 @@ var pleasewait = {
     buttons: []
 }
 
+var congrats = {
+    header:"Bravo!",
+    class: "good_answer",
+    text:"Vous avez répondu",
+    buttons:[{t:"Envoyer le score",f:finish}]
+}
+
 
 function loadQuestion(idQuestion){
     var myRequest = new XMLHttpRequest();
@@ -96,18 +103,20 @@ var btn = document.getElementById("send");
 var action1 = function(){
     console.log("continuer");
     if (eventActuel == listeEvent.length - 1){
-        finish();
+        //finish();
+        open_modal(congrats);
     }
     else{
         eventSuivant();
         update_UI_question();
+        close_modal();
     }
-    close_modal();
+    
 }
 
 function finish(){
-    close_modal();
-    open_modal(pleasewait,false);
+    //close_modal();
+    //open_modal(pleasewait,false);
     $.post( 
         "saveScore",
         { rep: rep },
@@ -123,10 +132,12 @@ function finish(){
 var message = {
     header:"test",
     text:"Explication",
-    buttons: [{t:"Continuer",f:action1}],
+    buttons: [{t:"Plus d'infos",f:afficher_doc},{t:"Continuer",f:action1}],
 }
 
-
+function afficher_doc() {
+    //
+}
 
 //le modal s'ouvre quand on clique sur le bouton
 btn.onclick = function() {
