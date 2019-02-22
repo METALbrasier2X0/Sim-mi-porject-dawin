@@ -90,6 +90,7 @@ function update_UI_question() {
         console.log(element);
         element.textContent = current.reponses[index];
     });*/
+    $(".view")[0].src = current.url_image;
     loadQuestion(current.id);
 }
 
