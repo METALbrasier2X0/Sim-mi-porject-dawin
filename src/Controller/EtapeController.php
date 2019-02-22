@@ -73,6 +73,7 @@ class EtapeController extends Controller
               'name'=> $question->getName(),
               'urlImage'=> $question->getUrlImage(),
               'textReponse'=> $question->getTextReponse(),
+              'urlImageReponse'=>$question->getUrlImageReponse(),
               'satis'=>$question->getSatisfactionC(),
               'entre'=>$question->getReputationE(),
               'perso'=>$question->getReputationP(),

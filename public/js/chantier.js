@@ -27,7 +27,7 @@ function loadQuestion(idQuestion){
             current_q = JSON.parse(myRequest.response);
             console.log(current_q);
             $('.question h3').text(current_q.question.name);
-            $('#imgQuestion').attr("src", current_q.question.urlImage);
+            $('#imgQuestion').attr("src", "public/imgGame/"+current_q.question.urlImage);
             $('.radios').html('');
             current_q.reponses[0].forEach(function (value,index) {
                 index++;
@@ -90,7 +90,7 @@ function update_UI_question() {
         console.log(element);
         element.textContent = current.reponses[index];
     });*/
-    $(".view")[0].src = current.url_image;
+    $(".view")[0].src = "public/imgGame/"+current.url_image;
     loadQuestion(current.id);
 }
 
