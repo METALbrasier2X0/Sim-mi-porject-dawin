@@ -24,9 +24,11 @@
         </div>
         {{ block("menu", "menu.html.twig") }}
     </header> 
+    {% block extern_body %}
     <div class="container">
         {% block body %}{% endblock %}
     </div>
+    {% endblock %}
     <!-- The Modal -->
     <div id="myModal" class="modal">
          <!-- Modal content -->
