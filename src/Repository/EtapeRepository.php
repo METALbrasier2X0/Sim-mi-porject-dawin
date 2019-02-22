@@ -19,13 +19,17 @@ class EtapeRepository extends ServiceEntityRepository
         parent::__construct($registry, Etape::class);
     }
 
-    public function findEtapes(int $id1, int $id2, int $id3, int $id4, int $id5){
+    public function findEtapes(array $mesPlanification){
 
-        return $this->getEntityManager()
-            ->createQuery(
-                'SELECT p FROM App:Etape e WHERE e.id ='.$id1.' UNION SELECT p FROM App:Etape p WHERE e.id ='.$id2.' UNION SELECT p FROM App:Etape p WHERE e.id ='.$id3.' UNION SELECT p FROM App:Etape p WHERE e.id ='.$id4.' UNION SELECT p FROM App:Etape p WHERE e.id ='.$id5.''
-            )
-            ->getResult();
+        $mesEtapes= array();
+
+        for($i=0; $i<$mesPlanification.count();$i++){
+            array_push($mesEtapes, $this->getEntityManager()->createQuery('SELECT p FROM App:Etape e WHERE e.id ='.$mesPlanification($i))->getResult());
+        }
+        
+        dump($mesEtapes);
+        return $mesEtapes;
+        
     }
     
 

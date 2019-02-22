@@ -66,6 +66,7 @@ ul.sortable {
   color: #ECA400;
   font-size: 50px;
 }
+
 .event-drop-info p{
   color: #ECA400;
   text-align: center;
@@ -106,18 +107,31 @@ ul.sortable {
   width:100%;
   height:50px;
   margin:10px auto;
-  
 }
 
+.titre-planification{
+  font-size: 35px;
+  padding: 10px 0px;
+}
+.text-planification{
+  padding: 20px 0px;
+}
+.barre{
+  height: 3px;
+  width: 150px;
+  background-color: #ECA400;
+}
   </style>
     <div class="conteneur">
-      <h1>Phase de preparation</h1>
+      <h1 class="titre-planification">Phase de preparation</h1>
+      <div class="barre"></div>
+      <p class="text-planification">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       <div class="container">
           <div class="dragAndDrop">
             <div>
               <h3>Liste des Events</h3>
               <ul id="list-1" class="sortable">
-                {% for Etape in Etapes %}
+                {% for Etape in Etapes|shuffle %}
                 <li id="item-{{ Etape.id }}" class="box">{{Etape.name}}</li>
                 {% endfor %}
               </ul>
@@ -140,7 +154,7 @@ ul.sortable {
           <button id="btn-validation" class="button bBlue1">Valider</button>
         </div>
       </div>
-    </div> 
+    </div>
     <script type="text/javascript" src="public/js/dragdrop.js"></script>
 {% endblock %}
 

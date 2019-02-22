@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="public/css/modal.css" type="text/css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"> 
         {% block stylesheets %}{% endblock %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -43,22 +44,23 @@
         </div> 
     </div>
     <footer>
-        <div class="flex_30">
-            <h2>Services</h2>
-            <p>Lorem Ipsum</p>
-        </div>
-        <div class="text_center">
-            <h2>Catégories</h2>
+        <div>
+            <h2>Informations</h2>
             <ul>
-                <li>un</li>
-                <li>deux</li>
+            <li><a href="mailto:simdawin@gmail.com">Contactez-nous</a></li>
             </ul>
         </div>
         <div class="text_center">
-            <h2>Partners</h2>
+            <h2>À propos</h2>
             <ul>
-                <li>un</li>
-                <li>deux</li>
+                <li><a href="{{path('cgu')}}">Mentions légales</a></li>
+                <li><a href="{{path('cgu')}}">CGU</a></li>
+            </ul>
+        </div>
+        <div class="text_center">
+            <h2>Réseaux sociaux</h2>
+            <ul>
+                <li> <a href="https://twitter.com/Sims_M_I">twitter</a></li>
             </ul>
         </div>
     </footer>

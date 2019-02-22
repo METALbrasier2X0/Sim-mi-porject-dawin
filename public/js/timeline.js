@@ -53,6 +53,7 @@ function createNewEvent(nom, time, description) {
     obj.description = description;
     obj.dateDebut = 0;
     obj.ordre = 0;
+    obj.nom_t = obj.nom.replace(" ","");
     return obj;
 }
 
@@ -100,17 +101,17 @@ function createEventFront(listeEvents, totalTime) {
         eventPourc = eventPourc;
         baliseInEventHtml = '<div>' + listeEvent.nom + '</div>'
         $('#timebarre').append('<div class="barreGreen" style="left:' + tempsEcouler + '%;"></div>');
-        $("#zoneTimeLine").append('<div id="' + listeEvent.nom + '" class="event" style="left:' + tempsEcouler + '%;width:' + eventPourc + '%;">' + baliseInEventHtml + '</div>');
+        $("#zoneTimeLine").append('<div id="' + listeEvent.nom_t + '" class="event" style="left:' + tempsEcouler + '%;width:' + eventPourc + '%;">' + baliseInEventHtml + '</div>');
         tempsEcouler = tempsEcouler + eventPourc;
         listeEvent.dateDebut = tempsEcouler;
     });
 }
 
-//Trouve un event à partir de son titre
+//Trouve un event à partir de son titre (concatené ou non)
 function getObjByName(name, listeEvents) {
     var objByName;
     listeEvents.forEach(function (listeEvent) {
-        if (listeEvent.nom == name) {
+        if (listeEvent.nom_t == name || listeEvent.nom == name) {
             objByName = listeEvent;
         }
     });
@@ -176,7 +177,7 @@ function eventPrecedent() {
 function organisationFrontEvents(listeEvents) {
     var i = 0;
     listeEvents.forEach(function (listeEvent) {
-        var idDiv = '#' + listeEvent.nom;
+        var idDiv = '#' + listeEvent.nom_t;
         if (i < eventActuel) {
             $(idDiv).css({
                 "box-shadow": "0px 0px 5px #D8D8D8",
@@ -217,8 +218,8 @@ function actuelEventFront(nbEventActuel) {
         $('.event > div').css({
             "background-color": "#006992"
         });
-        var idBaliseEvent = '#' + objEventActuel.nom;
-        var idBaliseEventinDiv = '#' + objEventActuel.nom + " > div";
+        var idBaliseEvent = '#' + objEventActuel.nom_t;
+        var idBaliseEventinDiv = '#' + objEventActuel.nom_t + " > div";
         $(idBaliseEvent).css({
             "box-shadow": "0px 10px 12px #A4A4A4",
             "top": "45%",

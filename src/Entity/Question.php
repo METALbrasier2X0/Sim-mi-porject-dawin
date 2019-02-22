@@ -39,7 +39,7 @@ class Question
     private $reputationE;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="integer", length=255)
      */
     private $reputationP;
 
@@ -63,9 +63,16 @@ class Question
      */
     private $url_image;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $url_image_reponse;
+
+
     public function __construct()
     {
         $this->ResponseList = new ArrayCollection();
+        $this->documents = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -121,12 +128,12 @@ class Question
         return $this;
     }
 
-    public function getReputationP(): ?string
+    public function getReputationP(): ?int
     {
         return $this->reputationP;
     }
 
-    public function setReputationP(string $reputationP): self
+    public function setReputationP(int $reputationP): self
     {
         $this->reputationP = $reputationP;
 
@@ -205,4 +212,17 @@ class Question
 
         return $this;
     }
+
+    public function getUrlImageReponse(): ?string
+    {
+        return $this->url_image_reponse;
+    }
+
+    public function setUrlImageReponse(?string $url_image_reponse): self
+    {
+        $this->url_image_reponse = $url_image_reponse;
+
+        return $this;
+    }
+
 }

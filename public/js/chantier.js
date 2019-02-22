@@ -1,16 +1,53 @@
-var etapes = [
-    {name:"test",description:"description1",bonne:1,question:"question1",reponses:["1-1","1-2","1-3","1-4"]},
-    {name:"test2",description:"description2",bonne:2,question:"question2",reponses:["2-1","2-2","2-3","2-4"]},
-    {name:"test3",description:"description3",bonne:3,question:"question3",reponses:["3-1","3-2","3-3","3-4"]},
-    {name:"test4",description:"description4",bonne:4,question:"question4",reponses:["4-1","4-2","4-3","4-4"]},
-    {name:"test5",description:"description5",bonne:1,question:"question5",reponses:["5-1","5-2","5-3","5-4"]}
-]
+var current_q = {};
+
+var pleasewait = {
+    header:"Chargement",
+    text:"Veuillez patienter...",
+    buttons: []
+}
+
+var congrats = {
+    header:"Bravo!",
+    class: "good_answer",
+    text:"Vous avez répondu",
+    buttons:[{t:"Envoyer le score",f:finish}]
+}
+
+
+function loadQuestion(idQuestion){
+    var myRequest = new XMLHttpRequest();
+    var link= '/loadQuestion?question='+idQuestion;
+    console.log(link);
+    myRequest.open('GET', link);
+    myRequest.send();
+    open_modal(pleasewait);
+    myRequest.onreadystatechange = function () {
+        if (myRequest.status === 200 && myRequest.readyState == 4) {
+            close_modal();
+            current_q = JSON.parse(myRequest.response);
+            console.log(current_q);
+            $('.question h3').text(current_q.question.name);
+            $('#imgQuestion').attr("src", current_q.question.urlImage);
+            $('.radios').html('');
+            current_q.reponses[0].forEach(function (value,index) {
+                index++;
+                if (value.includes("!")){current_q.bonne = index; value = value.split("!")[0]};
+                $('.radios').append('<input type="radio" name="group1" id="answer' + index + '" value="newsletter"> <label class="caseCheck case'+index+'" for="answer'+ index +'"><i class="fas fa-check"></i></label><label for="answer'+index+'">'+value+'</input></label> <br>');
+            });
+
+        }
+        else{
+            if (myRequest.status != 200){
+                alert("Error");
+            }
+        }
+    };
+  }
 
 timeline_init(etapes);
 
 var rep = {
-    satif: 20,
-    details: 50,
+    satif: 40,
     perso: 80,
     pro: 100,
 } 
@@ -19,9 +56,10 @@ function changeRep(id, nbr) {
     rep[id] += nbr;
     if (rep[id] > 100) {rep[id] = 100};
     if (rep[id] <= 0) {
+        var txt = $("#"+id+" h4")[0].innerHTML;
         var message = {
             header:"GAME OVER",
-            text:"Votre réputation n'est plus suffisante!",
+            text:"Votre "+txt+" n'est plus suffisante!",
             buttons: [{t:"Retour",f:function(){redirect("/menu");}}],
         }
         open_modal(message,false);
@@ -39,6 +77,7 @@ function update_UI_rep() {
     
 
     $.each(rep, function(index, value) {
+        //console.log(index);
         $("#"+ index +" .bar_front").attr("width",  value * back / 100);
         $("#"+ index +" p")[0].innerHTML = value + "/100";
     }); 
@@ -46,11 +85,13 @@ function update_UI_rep() {
 
 function update_UI_question() {
     var current = etapes[eventActuel];
-    $(".question h3")[0].innerHTML = current.question;
+    /*$(".question h3")[0].innerHTML = current.question;
     $.each($(".answer label"),function(index,element){
         console.log(element);
         element.textContent = current.reponses[index];
-    });
+    });*/
+    $(".view")[0].src = current.url_image;
+    loadQuestion(current.id);
 }
 
 update_UI_rep();
@@ -63,38 +104,65 @@ var btn = document.getElementById("send");
 var action1 = function(){
     console.log("continuer");
     if (eventActuel == listeEvent.length - 1){
-        redirect("/menu"); //TODO changer vers stat
+        //finish();
+        open_modal(congrats);
     }
     else{
         eventSuivant();
         update_UI_question();
+        close_modal();
     }
-    close_modal();
+    
+}
+
+function finish(){
+    //close_modal();
+    //open_modal(pleasewait,false);
+    $.post( 
+        "saveScore",
+        { rep: rep },
+        function(data) {
+           console.log(data);
+           redirect("/score");
+        }
+     );
+    
 }
 
 //définir le message du modal
 var message = {
     header:"test",
     text:"Explication",
-    buttons: [{t:"Continuer",f:action1}],
+    buttons: [{t:"Plus d'infos",f:afficher_doc},{t:"Continuer",f:action1}],
 }
 
-
+function afficher_doc() {
+    //
+}
 
 //le modal s'ouvre quand on clique sur le bouton
 btn.onclick = function() {
-    var bonne = '#answer' + etapes[eventActuel].bonne;
+    //var bonne = '#answer' + etapes[eventActuel].bonne ? etapes[eventActuel].bonne : 1;
+    var bonne = '#answer'+current_q.bonne;
     if ($('.answer input:checked').length == 0) {
         alert("Please check one");
         return;
     }
     if ($(bonne)[0].checked){
-        message.header = "Bonne réponse!";
-        changeRep("perso",+10);
+        message.header = "Bonne réponse! <i class='fas fa-laugh-beam'></i>";
+        message.class = "good_answer";
+        message.text = current_q.question.textReponse;
+        changeRep("satif",current_q.question.satis);
+        changeRep("perso",current_q.question.perso);
+        changeRep("pro",current_q.question.entre);
     }
     else {
-        message.header = "Mauvaise réponse!";
-        changeRep("pro",-20);
+        message.header = "Mauvaise réponse! <i class='fas fa-sad-tear'></i>";
+        message.class = "bad_answer";
+        message.text = current_q.question.textReponse;
+        changeRep("satif",-current_q.question.satis);
+        changeRep("perso",-current_q.question.perso);
+        changeRep("pro",-current_q.question.entre);
     }
     open_modal(message,false);
 }

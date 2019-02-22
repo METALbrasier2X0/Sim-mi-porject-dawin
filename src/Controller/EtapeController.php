@@ -14,6 +14,8 @@ use App\Repository\ReponseRepository;
 use App\Repository\SolutionRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
+
 
 class EtapeController extends Controller
 {
@@ -59,7 +61,25 @@ class EtapeController extends Controller
     public function loadQuestion(Request $request, QuestionRepository $QuestionRepository, ReponseRepository $ReponseRepository)
     {
       $id = $_GET['question'];
-      return $this->render('ingame/loadQuestion.html.twig', ['getQuestions' => $QuestionRepository->findById($id) , 'getReponses' => $ReponseRepository->findBy(["id_question" => $id])]);
+        $question = $QuestionRepository->findById($id)[0];
+        $reponses = $ReponseRepository->findBy(["id_question" => $id]);
+        $jsonReponse = array();
+        foreach ($reponses as $value) {
+            $jsonReponse[] = $value->getLibelle();
+        }
+
+      return new JsonResponse(array(
+          'question' => array(
+              'name'=> $question->getName(),
+              'urlImage'=> $question->getUrlImage(),
+              'textReponse'=> $question->getTextReponse(),
+              'satis'=>$question->getSatisfactionC(),
+              'entre'=>$question->getReputationE(),
+              'perso'=>$question->getReputationP(),
+            ),
+          'reponses' => array($jsonReponse)
+        ));
+      //return $this->render('ingame/loadQuestion.html.twig', ['getQuestions' => $QuestionRepository->findById($id) , 'getReponses' => $ReponseRepository->findBy(["id_question" => $id])]);
     }
 
     /**

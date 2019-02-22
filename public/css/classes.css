@@ -21,3 +21,11 @@
 .separator {
     margin-top: 10px;
 }
+
+.good_answer {
+    color: green;
+}
+
+.bad_answer {
+    color: red;
+}
