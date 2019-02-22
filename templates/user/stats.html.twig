@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="public/css/stats.css" type="text/css" />
+{% endblock %}
+
+<div class="conteneur-stats">
+  <a href="/"> Retour </a>
+  <h2>
+    Statistique
+  </h2>
+  <div class="stats casetitre">
+    <div class="case c1">Date</div>
+    <div class="case c1">Stats 1</div>
+    <div class="case c1">Stats 2</div>
+    <div class="case c1">Stats 3</div>
+  </div>
+  {% for Score in Scores %}
+  <div class="stats">
+    <div class="case c1">21/06/2018</div>
+    <div class="case">{{Score.satisfactionC}}</div>
+    <div class="case">{{Score.reputationP}}</div>
+    <div class="case">{{Score.reputationE}}</div>
+  </div>
+  {% endfor %}
+
+</div>
+
+
+
+{% endblock %}
