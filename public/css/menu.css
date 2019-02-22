@@ -1,0 +1,143 @@
+.button {
+    margin: 5px;
+    padding: 5px 30px;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+.button:active {
+    margin: 0px;
+    padding: 10px 35px;
+}
+
+.bOrange {
+    background-color: #ECA400;
+    border: solid 1px #ECA400;
+    color: white;
+    transition: 0.2s;
+    font-size: 35px;
+}
+
+.bOrange:hover {
+    background-color: white;
+    color: #ECA400;
+    transition: 0.2s;
+}
+
+
+.bBlue2 {
+    background-color: #27476E;
+    border: solid 1px #27476E;
+    color: white;
+    transition: 0.2s;
+    font-size: 15px;
+    height: 50px;
+}
+
+.bBlue2:hover {
+    background-color: white;
+    color: #27476E;
+    transition: 0.2s;
+}
+
+.bBlue3 {
+    background-color: #001D4A;
+    border: solid 1px #001D4A;
+    color: white;
+    transition: 0.2s;
+}
+
+.bBlue3:hover {
+    background-color: white;
+    color: #001D4A;
+    transition: 0.2s;
+}
+
+
+
+.title-game {
+    font-family: 'm6x11', sans-serif;
+}
+
+.Orangeb {
+    border: solid 1px #ECA400;
+    background-color: white;
+    color: #ECA400;
+    transition: 0.2s;
+}
+
+.Orangeb:hover {
+    background-color: #ECA400;
+    color: white;
+    transition: 0.2s;
+}
+
+.Blue1b {
+    border: solid 1px #006992;
+    background-color: white;
+    color: #006992;
+    transition: 0.2s;
+}
+
+.Blue1b:hover {
+    background-color: #006992;
+    color: white;
+    transition: 0.2s;
+}
+
+.Blue2b {
+    border: solid 1px #27476E;
+    background-color: white;
+    color: #27476E;
+    transition: 0.2s;
+}
+
+.Blue2b:hover {
+    background-color: #27476E;
+    color: white;
+    transition: 0.2s;
+}
+
+.Blue3b {
+    border: solid 1px #001D4A;
+    background-color: white;
+    color: #001D4A;
+    transition: 0.2s;
+}
+
+.Blue3b:hover {
+    background-color: #001D4A;
+    color: white;
+    transition: 0.2s;
+}
+
+.buttons-secondary {
+    display: flex;
+    width: 340px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-around;
+}
+
+.screen {
+    height: 700px;
+    padding: 80px;
+    text-align: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background: url("./../images/menu_back.jpg") center center repeat;
+}
+
+.screen>h2 {
+    font-family: smart, sans-serif;
+    font-size: 200px;
+    margin-bottom: 50px;
+}
+
+a {
+    text-decoration: none;
+}
