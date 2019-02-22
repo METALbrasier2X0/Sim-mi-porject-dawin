@@ -10,21 +10,19 @@ footer{
 footer h2{
     font-size: 120%;
     margin-bottom: 10px;
-}
-
-h2{
     font-weight: bold;
 }
 
-a{
+
+footer  a{
     color:white;
     text-decoration: none;
 }
 
-a:visited{
+footer  a:visited{
     color:white
 }
 
-a:hover{
+footer  a:hover{
     color:#ECA400;
 }
