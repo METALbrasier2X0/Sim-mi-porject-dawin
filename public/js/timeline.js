@@ -53,7 +53,8 @@ function createNewEvent(nom, time, description) {
     obj.description = description;
     obj.dateDebut = 0;
     obj.ordre = 0;
-    obj.nom_t = obj.nom.replace(" ","");
+    obj.nom_t = obj.nom.replace(/ /g,"");
+    obj.nom_t = obj.nom_t.replace(/[^\w\s]/gi, '');
     return obj;
 }
 

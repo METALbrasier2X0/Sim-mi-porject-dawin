@@ -289,11 +289,14 @@
             saveChoix(choix);
          }
          else {
+            var saveForce = function(){
+               saveChoix(choix);
+            }
             var mauvais = {
                header:"Attention!",
                class:"bad_answer",
                text:"Ce n'est pas le bon ordre",
-               buttons: [{t:"Réessayer",f:close_modal}]
+               buttons: [{t:"Réessayer",f:close_modal},{t:"Continuer quand même",f:saveForce}]
            }
            open_modal(mauvais);
          }
