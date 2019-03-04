@@ -152,7 +152,7 @@ btn.onclick = function() {
         alert("Please check one");
         return;
     }
-    if ($(bonne)[0].checked){
+    if ($(bonne)[0].checked){ //SI BONNE REPONSE
         message.header = "Bonne réponse! <i class='fas fa-laugh-beam'></i>";
         message.class = "good_answer";
         message.text = current_q.question.textReponse;
@@ -161,7 +161,7 @@ btn.onclick = function() {
         changeRep("perso",current_q.question.perso);
         changeRep("pro",current_q.question.entre);
     }
-    else {
+    else { //SI MAUVAISE REPONSE
         message.header = "Mauvaise réponse! <i class='fas fa-sad-tear'></i>";
         message.class = "bad_answer";
         message.text = current_q.question.textReponse;
