@@ -32,7 +32,7 @@ function loadQuestion(idQuestion){
             current_q.reponses[0].forEach(function (value,index) {
                 index++;
                 if (value.includes("!")){current_q.bonne = index; value = value.split("!")[0]};
-                $('.radios').append('<input type="radio" name="group1" id="answer' + index + '" value="newsletter"> <label class="caseCheck case'+index+'" for="answer'+ index +'"><i class="fas fa-check"></i></label><label for="answer'+index+'">'+value+'</input></label> <br>');
+                $('.radios').append('<input type="radio" name="group1" id="answer' + index + '" value="newsletter"> <label class="caseCheck case'+index+'" for="answer'+ index +'"><i class="fas fa-check"></i></label><label for="answer'+index+'">'+value+'</input></label> <br><br><br>');
             });
 
         }
@@ -50,7 +50,7 @@ var rep = {
     satif: 40,
     perso: 80,
     pro: 100,
-} 
+}
 
 function changeRep(id, nbr) {
     rep[id] += nbr;
@@ -72,15 +72,15 @@ function changeRep(id, nbr) {
 function update_UI_rep() {
     var back = $("#satif .bar_back").attr("width");
     //console.log(back);
-    
+
     //$("#satif .bar_front").animate({width: rep.satif * back / 100}, 5000, function() {});
-    
+
 
     $.each(rep, function(index, value) {
         //console.log(index);
         $("#"+ index +" .bar_front").attr("width",  value * back / 100);
         $("#"+ index +" p")[0].innerHTML = value + "/100";
-    }); 
+    });
 }
 
 function update_UI_question() {
@@ -116,13 +116,13 @@ var action1 = function(){
         update_UI_question();
         close_modal();
     }
-    
+
 }
 
 function finish(){
     //close_modal();
     //open_modal(pleasewait,false);
-    $.post( 
+    $.post(
         "saveScore",
         { rep: rep },
         function(data) {
@@ -130,7 +130,7 @@ function finish(){
            redirect("/score");
         }
      );
-    
+
 }
 
 //définir le message du modal

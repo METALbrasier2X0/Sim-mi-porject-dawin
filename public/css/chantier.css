@@ -1,5 +1,3 @@
-
-
 .button{
   margin: 5px;
   padding: 5px 30px;
@@ -26,42 +24,68 @@
   transition: 0.2s;
 }
 .left_panel{
-  max-width: 50vw;
+  background-color: white;
+  height: calc(100% - 200px);
+  width: 30%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.left_panel > div{
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
 .left_panel img{
-  min-width: 700px;
-  min-width: 900px;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  box-shadow: 0px 0px 10px grey;
 }
 
 .right_panel{
-    /*width: 35%;*/
-    flex-basis: 35%;
     background-color: #27476E;
     color: white;
-    height: 100%;
-    /*top: 100px;*/
-    /*height: 815px;*/
-    padding: 60px;
+    height: calc(100% - 200px);
+    width: 70%;
+    position: absolute;
+    right: 0;
+    top: 0;
     }
 
 .question{
-left: 50px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 20px;
 }
 
 .answer{
-     margin-top: 20px;
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  height: calc(100% - 160px);
+  width: 50%;
 }
 
 #send{
-position: relative;
-  /*right: 50px;*/
-  float:right;
+  position: absolute;
+  bottom: 0px;
+  right: 80px;
+}
+.img_question{
+  position: absolute;
+  top:80px;
+  left: 10px;
+  max-width: 400px;
+}
+.img_question>img{
+ height: 100%;
 }
 
-.img_question>img{
- width:450px;
-}
 .bar{
   border-radius: 10px;
 }
@@ -167,15 +191,11 @@ margin-left: auto;
 margin-right: auto;
 width: 50%;
 }
-
-.view{
-    display: block;
-    margin-top: 50px;
-    /*margin-right: 50%;*/
-    /*margin-left: 100px;*/
-    margin-left:5%;
-    margin-bottom: 20px;
-    /*width: 900px;*/
-    /*width:90%;*/
-    position: relative;
+.conteneurgame{
+  position: absolute;
+  top: 150px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 150px);
+  background-color: white;
 }

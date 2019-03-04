@@ -50,47 +50,49 @@
 {% endblock %}
 
 {% block extern_body %}
-
+<div class="conteneurgame">
 <div class="flex spacearound">
 {# partie gauche contenant l'image et les barres #}
 
-<div class="left_panel">
+  <div class="left_panel">
 
 
-    <div class="view-house">
+      <div class="view-house">
         <img src="https://3dwarehouse.sketchup.com/warehouse/v1.0/publiccontent/ae7b0af3-8096-4bb5-8de0-e8ab878c866d" class="view" >
-    </div>
-</div>
+      </div>
+  </div>
 
 {# partie droite contenant les question, les réponses ainsi que les boutons#}
 
-<div class="right_panel">
+  <div class="right_panel">
 
     <div class="question">
-        <h3> Chargement de la question ! </h3>
+      <h3> Chargement de la question ! </h3>
     </div>
 
- <div class="img_question">
-        <img id="imgQuestion" src="http://absketches.com/wp-content/uploads/2016/01/TerrainHouse002.jpg" class="center" >
-    </div>
-
-    <div class="answer">
+     <div class="img_question">
+        <img id="imgQuestion" src="http://absketches.com/wp-content/uploads/2016/01/TerrainHouse002.jpg">
+      </div>
+      <div class="answer">
         <div class="radios">
-            <input type="radio" name="group1" id="answer1" value="one"> <label class="caseCheck case1" for="answer1"><i class="fas fa-check"></i></label><label for="answer1"> Réponse 1</label> <br>
-            <input type="radio" name="group1" id="answer2" value="two"> <label class="caseCheck case2" for="answer2"><i class="fas fa-check"></i></label><label for="answer2"> Réponse 2</label> <br>
-            <input type="radio" name="group1" id="answer3" value="three"> <label class="caseCheck case3" for="answer3"><i class="fas fa-check"></i></label><label for="answer3"> Réponse 3</label> <br>
-            <input type="radio" name="group1" id="answer4" value="four"> <label class="caseCheck case4" for="answer4"><i class="fas fa-check"></i></label><label for="answer4"> Réponse 4</label> <br>
+            <input type="radio" name="group1" id="answer1" value="one"> <label class="caseCheck case1" for="answer1"><i class="fas fa-check"></i></label><label for="answer1"> Réponse 1</label> <br><br>
+            <input type="radio" name="group1" id="answer2" value="two"> <label class="caseCheck case2" for="answer2"><i class="fas fa-check"></i></label><label for="answer2"> Réponse 2</label> <br><br>
+            <input type="radio" name="group1" id="answer3" value="three"> <label class="caseCheck case3" for="answer3"><i class="fas fa-check"></i></label><label for="answer3"> Réponse 3</label> <br><br>
+            <input type="radio" name="group1" id="answer4" value="four"> <label class="caseCheck case4" for="answer4"><i class="fas fa-check"></i></label><label for="answer4"> Réponse 4</label> <br><br>
         </div>
         <input class="button bOrange" type="button" id="send" value="Envoyer"></input>
+      </div>
     </div>
-</div>
 
-</div>
+  </div>
 
 {{ block("timeline", "timeline.html.twig") }}
+</div>
 {% endblock %}
 
-{% block footer %}<div><h2></h2></div>{% endblock %}
+
+
+
 
 
 
