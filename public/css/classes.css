@@ -29,3 +29,7 @@
 .bad_answer {
     color: red;
 }
+
+a.button{
+    text-decoration: none;
+  }

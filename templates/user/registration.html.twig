@@ -2,12 +2,13 @@
 
 {% block title %}Inscription{% endblock %}
 
-{% block body %}
 
 {% block stylesheets %}
 <link rel="stylesheet" href="public/css/registration.css" type="text/css"/>
 
 {% endblock %}
+
+{% block body %}
 
 <div class="conteneur">
 <h2 class="titre"> Inscription </h2>
@@ -24,6 +25,12 @@
 <button  onclick="myFunction()" type="submit" class="button bOrange"> Inscription</button>
 
 {{form_end(form)}}
+
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
 
 <script>
 function myFunction() {

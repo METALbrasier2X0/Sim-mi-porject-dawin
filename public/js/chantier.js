@@ -90,7 +90,11 @@ function update_UI_question() {
         console.log(element);
         element.textContent = current.reponses[index];
     });*/
-    $(".view")[0].src = "public/imgGame/"+current.url_image;
+    var etape_image = "http://chevalier-construction.com/wp-content/gallery/toiture/toiture3.jpg"
+    if (current.url_image != "") {
+        etape_image = "public/imgGame/"+current.url_image;
+    }
+    $(".view")[0].src = etape_image;
     loadQuestion(current.id);
 }
 
