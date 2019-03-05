@@ -25,11 +25,12 @@
 }
 .left_panel{
   background-color: white;
-  height: calc(100% - 200px);
-  width: 30%;
+  height: calc(100% - 220px);
+  width: calc(30% - 20px);
   position: absolute;
-  left: 0;
-  top: 0;
+  left: 10px;
+  top: 10px;
+  border-radius: 5px;
 }
 .left_panel > div{
   width: 100%;
@@ -38,37 +39,58 @@
 }
 
 .left_panel img{
-  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
   box-shadow: 0px 0px 10px grey;
+  border-radius: 5px;
 }
 
 .right_panel{
-    background-color: #27476E;
-    color: white;
-    height: calc(100% - 200px);
-    width: 70%;
+    /*background-color: #27476E;*/
+    background-color: white;
+    color: #27476E;
+    height: calc(100% - 220px);
+    width: calc(70% - 20px);
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 10px;
+    top: 10px;
+    box-shadow: 0px 0px 10px grey;
+    border-radius: 5px;
     }
 
 .question{
   position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 20px;
+  background-color: #27476E;
+  top: 0;
+  left: 0;
+  color: white;
+  width: 100%;
+  text-align: center;
+  font-size: 25px;
+  padding: 10px 0px;
+  border-radius: 5px;
+}
+.question h3{
+
 }
 
 .answer{
   position: absolute;
-  top: 80px;
-  left: 50%;
-  height: calc(100% - 160px);
+  top: 50px;
+  left: 55%;
+  height: calc(100% - 50px);
   width: 50%;
+}
+.radios{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-100%, -50%);
+  font-size: 20px;
 }
 
 #send{
@@ -76,14 +98,22 @@
   bottom: 0px;
   right: 80px;
 }
+
 .img_question{
   position: absolute;
-  top:80px;
-  left: 10px;
-  max-width: 400px;
+  top:calc(50% + 30px);
+  left: 25%;
+  transform: translate(-50%, -50%);
+  max-width: 40%;
 }
-.img_question>img{
+
+.img_question > img{
  height: 100%;
+ width: 100%;
+ display: block;
+ margin: 0 auto;
+ border-radius: 5px;
+ box-shadow: 0px 5px 10px grey;
 }
 
 .bar{
@@ -97,7 +127,7 @@ input[name=group1]{
   width: 15px;
   border-radius: 3px;
   display: inline-block;
-  border: solid 1px white;
+  border: solid 1px black;
   margin: 0px 10px;
   position: relative;
 }
@@ -193,9 +223,12 @@ width: 50%;
 }
 .conteneurgame{
   position: absolute;
-  top: 150px;
+  top: 100px;
   left: 0;
   width: 100%;
   height: calc(100% - 150px);
   background-color: white;
+}
+.timelineDescription{
+  display: none !important;
 }
