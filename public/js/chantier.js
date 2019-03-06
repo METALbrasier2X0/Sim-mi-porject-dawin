@@ -57,11 +57,10 @@ function changeRep(id, nbr) {
     if (rep[id] > 100) {rep[id] = 100};
     if (rep[id] <= 0) {
         var txt = $("#"+id+" h4")[0].innerHTML;
-        var message = {
-            header:"GAME OVER",
-            text:"Votre "+txt+" n'est plus suffisante!",
-            buttons: [{t:"Retour",f:function(){redirect("/menu");}}],
-        }
+        message = new DaModal()
+        message.header = "GAME OVER";
+        message.text = "Votre "+txt+" n'est plus suffisante!";
+        message.buttons = [{t:"Retour",f:function(){redirect("/menu");}}];
         open_modal(message,false);
     }
     update_UI_rep();
@@ -134,11 +133,11 @@ function finish(){
 }
 
 //définir le message du modal
-var message = {
+/*var message = {
     header:"test",
     text:"Explication",
     buttons: [{t:"Plus d'infos",f:afficher_doc},{t:"Continuer",f:action1}],
-}
+}*/
 
 function afficher_doc() {
     //
@@ -147,6 +146,7 @@ function afficher_doc() {
 //le modal s'ouvre quand on clique sur le bouton
 btn.onclick = function() {
     //var bonne = '#answer' + etapes[eventActuel].bonne ? etapes[eventActuel].bonne : 1;
+    var message = new DaModal();
     var bonne = '#answer'+current_q.bonne;
     if ($('.answer input:checked').length == 0) {
         alert("Please check one");
@@ -155,7 +155,6 @@ btn.onclick = function() {
     if ($(bonne)[0].checked){ //SI BONNE REPONSE
         message.header = "Bonne réponse! <i class='fas fa-laugh-beam'></i>";
         message.class = "good_answer";
-        message.text = current_q.question.textReponse;
         $("#"+listeEvent[eventActuel].nom_t).css({"background-color":"green"});
         changeRep("satif",current_q.question.satis);
         changeRep("perso",current_q.question.perso);
@@ -164,11 +163,16 @@ btn.onclick = function() {
     else { //SI MAUVAISE REPONSE
         message.header = "Mauvaise réponse! <i class='fas fa-sad-tear'></i>";
         message.class = "bad_answer";
-        message.text = current_q.question.textReponse;
+        
         $("#"+listeEvent[eventActuel].nom_t).css({"background-color":"red"});
         changeRep("satif",-current_q.question.satis);
         changeRep("perso",-current_q.question.perso);
         changeRep("pro",-current_q.question.entre);
     }
+    message.text = current_q.question.textReponse;
+    if (current_q.question.urlImageReponse){
+        message.image = "public/imgGame/"+current_q.question.urlImageReponse;
+    }
+    message.buttons = [{t:"Plus d'infos",f:afficher_doc},{t:"Continuer",f:action1}];
     open_modal(message,false);
 }
