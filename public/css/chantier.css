@@ -1,3 +1,4 @@
+
 .button{
   margin: 5px;
   padding: 5px 30px;
@@ -228,9 +229,6 @@ width: 50%;
   width: 100%;
   height: calc(100% - 150px);
   background-color: white;
-}
-.timelineDescription{
-  display: none !important;
 }
 .GameAideLink{
   position: absolute;

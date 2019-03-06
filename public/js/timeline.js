@@ -32,7 +32,7 @@ var listeEvent = [];
 function timeline_init(_arr){
 
     listeEvent = [];
-    
+
     _arr.forEach(element => {
         var event = createNewEvent(element.name,1,element.description);
         listeEvent.push(event);
@@ -133,7 +133,7 @@ function interac(){
             }
             i++;
         });
-    
+
         if (verification === false) {
             organisationFrontEvents(listeEvent);
             $(this).css({
@@ -229,7 +229,7 @@ function actuelEventFront(nbEventActuel) {
         $(idBaliseEventinDiv).css({
             "background-color": "#001D4A"
         });
-        $('#timelineDescription').text(objEventActuel.description);
+        //$('#timelineDescription').text(objEventActuel.description);
         var leftCursor = objEventActuel.dateDebut - (objEventActuel.time / calculTimeTotal(listeEvent) * 100);
         $('#timeCursor').css({
             "left": leftCursor + "%"
