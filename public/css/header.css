@@ -25,7 +25,7 @@ header > a{
 .logo > svg{
   height:100%;
   width:auto;
-  
+
 }
 
 header path{
@@ -106,7 +106,7 @@ header:hover #path2223{
     top: var(--ph2);
     transform: rotate(135deg);
   }
-  
+
   .navbarback{
     height: 100%;
     width: 100%;
@@ -187,4 +187,9 @@ header:hover #path2223{
   }
   .navbar hr{
     color: #63C7D1;
+  }
+  #menuUsername{
+    font-size: 18px;
+    color: #006992;
+    padding-left: 30px;
   }

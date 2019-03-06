@@ -9,14 +9,14 @@
       <div class="navbarback">
       </div>
       <div class="navbar">
-        <div>
+        <div id="menuUsername">
           {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-          > {{app.user.username}}
+          <i class="fas fa-user"></i> Bonjour, {{app.user.username}}
           {% endif %}
         </div>
         <hr/>
                 <a class="linknav" href="{{path('menu')}}">Jouer</a>
-        <hr/> 
+        <hr/>
 
 
 
@@ -30,7 +30,7 @@
         <hr/>
 
         {% endif %}
-        
+
          {% if is_granted('IS_AUTHENTICATED_REMEMBERED') ==false %}
 
          <a class="linknav" href="{{path('connexion')}}">Se connecter</a>
@@ -43,7 +43,7 @@
 
       <script>
         var navbar = false;
-        
+
         $('header').addClass("nav_closed");
 
 function clickmenu(){
@@ -96,7 +96,7 @@ function closenavbar(){
     $('.navbar').css({
     "display" : 'none', // couleur rouge
     });
-    
+
   }
 
 }
