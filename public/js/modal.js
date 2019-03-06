@@ -1,3 +1,9 @@
+function DaModal(){
+  this.header = "test";
+  this.text = "Explication";
+  this.buttons= [];
+}
+
 // Get the modal
 var modal = document.getElementById('myModal');
 
@@ -20,6 +26,11 @@ function open_modal(m,exit_on_click) {
     }
     //corps
     $('.modal-body').html(m.text);
+    //image
+    if (m.image){
+      var $image = $('<img class="modalImage" src="'+m.image+'">');
+      $image.appendTo($('.modal-body'));
+    }
     //$('.modal-footer').children("h3").html(footer);
     $('.modal-footer').html('');
     console.log(m.buttons);
