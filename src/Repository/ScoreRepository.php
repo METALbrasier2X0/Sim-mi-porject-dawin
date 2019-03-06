@@ -28,8 +28,8 @@ class ScoreRepository extends ServiceEntityRepository
     {
         return $this->getEntityManager()
             ->createQuery(
-                'SELECT p FROM App:Score p WHERE p.isUser ='.$user.''
-            )
+                'SELECT p FROM App:Score p WHERE p.isUser ='.$user.'' 
+                            )
             ->getResult();
     }
 
