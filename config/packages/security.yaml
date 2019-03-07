@@ -48,4 +48,4 @@ security:
         - { path: ^/chantier, allow_if: "is_authenticated() and !is_anonymous()" }
         - { path: ^/planification, allow_if: "is_authenticated() and !is_anonymous()" }
         - { path: ^/menu, allow_if: "is_authenticated() and !is_anonymous()" }
-        - { path: ^/score, allow_if: "is_authenticated() and !is_anonymous()" }
+        - { path: ^/score/index.html.twig, allow_if: "is_authenticated() and !is_anonymous()" }

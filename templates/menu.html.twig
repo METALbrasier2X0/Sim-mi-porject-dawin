@@ -16,13 +16,7 @@
         </div>
         <hr/>
                 <a class="linknav" href="{{path('menu')}}">Jouer</a>
-        <hr/>
-
-        <hr/>
-                <a class="linknav" href="{{path('scoreglobal')}}">Score global</a>
-        <hr/>
-
-
+      {#<hr/>#}  
 
         {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
 
@@ -36,7 +30,9 @@
         {% endif %}
 
          {% if is_granted('IS_AUTHENTICATED_REMEMBERED') ==false %}
-
+        <hr/>
+                <a class="linknav" href="{{path('scoreglobal')}}">Stats global</a>
+        <hr/>
          <a class="linknav" href="{{path('connexion')}}">Se connecter</a>
         <hr/>
             <a class="linknav" href="{{path('inscription')}}">S'inscrire</a>

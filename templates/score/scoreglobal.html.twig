@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Top 10 IUT Bordeaux{% endblock %}
+{% block title %}Stats global{% endblock %}
 
 {% block body %}
 <style>
@@ -38,7 +38,7 @@
 <div class="conteneur-stats">
   <a href="{{path('menu')}}" class="button bBlue2">Retour au menu</a>
   <h2>
-  Top 10 IUT Bordeaux
+  Top 10 des scores de l'IUT de Bordeaux
   </h2>
   <div class="stats casetitre">
     <div class="case c1">Joueur</div> 
@@ -48,8 +48,8 @@
     <div class="case c1">Reputation Entreprise</div>
   </div>
   {% for Score in Scores|slice(0, 10) %} {# fait apparaitre les 10 premiers #}
-  <div class="stats">
   {% if Score.isUser.getUsername() not in newArray %} {# affiche distinctement le scrore le plus élevé du joueur #}
+    <div class="stats">
     <div class="case">{{Score.isUser.getUsername()}}</div>
     <div class="case c1">{{Score.creation_partie |date('d-m-Y') }}</div>
     <div class="case">{{Score.satisfactionC}}</div>
