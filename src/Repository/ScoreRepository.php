@@ -37,7 +37,7 @@ class ScoreRepository extends ServiceEntityRepository
     {
         return $this->getEntityManager()
             ->createQuery(
-                'SELECT p FROM App:Score p' 
+                'SELECT p FROM App:Score p ORDER BY p.satisfactionC DESC, p.reputationP DESC, p.reputationE DESC'
                             )
             ->getResult();
     }
