@@ -238,3 +238,10 @@ width: 50%;
   font-size: 25px;
   text-align: right;
 }
+
+.GameAideLink a{
+  color: #27476E;
+  text-decoration: none;
+  border-bottom: solid 1px #27476E;
+  border-radius: 5px;
+}
