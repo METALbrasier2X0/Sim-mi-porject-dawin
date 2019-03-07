@@ -45,7 +45,7 @@
   color: #ECA400;
   transition: 0.2s;
 }
-a{
+form a{
   font-size: 12px;
 }
 input[type=checkbox]{

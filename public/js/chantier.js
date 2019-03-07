@@ -28,6 +28,7 @@ function loadQuestion(idQuestion){
             console.log(current_q);
             $('.question h3').text(current_q.question.name);
             $('#imgQuestion').attr("src", "public/imgGame/"+current_q.question.urlImage);
+            $('.GameAideLink a').attr("href","public/imgGame/Etudedesol.pdf");
             $('.radios').html('');
             current_q.reponses[0].forEach(function (value,index) {
                 index++;
@@ -140,7 +141,7 @@ function finish(){
 }*/
 
 function afficher_doc() {
-    //
+    window.open("public/imgGame/Etudedesol.pdf");
 }
 
 //le modal s'ouvre quand on clique sur le bouton
