@@ -33,6 +33,16 @@ class ScoreRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function findAllScoreOrderByUser()
+    {
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT p FROM App:Score p' 
+                            )
+            ->getResult();
+    }
+
+
     // /**
     //  * @return Score[] Returns an array of Score objects
     //  */

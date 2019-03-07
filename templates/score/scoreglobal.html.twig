@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Top 10 IUT Bordeaux{% endblock %}
+
+{% block body %}
+<style>
+
+.conteneur-stats{
+  width:1024px;
+  margin: 30px auto;
+}
+.conteneur-stats h2{
+  font-size: 40px;
+  padding: 50px 0px;
+}
+.stats{
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  border-bottom: solid 1px grey;
+  display: flex;
+  text-align: center;
+  color: #154360;
+}
+.stats > .case{
+  width: 25%;
+}
+.c1{
+  background-color:  #eaf2f8 ;
+}
+.casetitre{
+  font-size: 20px;
+}
+
+</style>
+{% set newArray = [] %}
+
+<div class="conteneur-stats">
+  <a href="{{path('menu')}}" class="button bBlue2">Retour au menu</a>
+  <h2>
+  Top 10 IUT Bordeaux
+  </h2>
+  <div class="stats casetitre">
+    <div class="case c1">Joueur</div> 
+    <div class="case c1">Date</div>
+    <div class="case c1">Satisfaction Client</div>
+    <div class="case c1">Reputation Personnel</div>
+    <div class="case c1">Reputation Entreprise</div>
+  </div>
+  {% for Score in Scores|slice(0, 10) %} {# fait apparaitre les 10 premiers #}
+  <div class="stats">
+  {% if Score.isUser.getUsername() not in newArray %} {# affiche distinctement le scrore le plus élevé du joueur #}
+    <div class="case">{{Score.isUser.getUsername()}}</div>
+    <div class="case c1">{{Score.creation_partie |date('d-m-Y') }}</div>
+    <div class="case">{{Score.satisfactionC}}</div>
+    <div class="case">{{Score.reputationP}}</div>
+    <div class="case">{{Score.reputationE}}</div>
+   {% set newArray = newArray|merge([Score.isUser.getUsername()]) %}
+
+  </div>
+  {% endif %}
+    
+  {% endfor %}
+
+</div>
+
+
+
+{% endblock %}
