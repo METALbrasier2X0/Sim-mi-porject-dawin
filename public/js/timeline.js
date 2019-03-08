@@ -143,7 +143,7 @@ function interac(){
                 "opacity": "1"
             });
             let eventClick = getObjByName(this.id, listeEvent);
-            $('#timelineDescription').text(eventClick.description);
+            //$('#timelineDescription').text(eventClick.description);
         }
     });
 }

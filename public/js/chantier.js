@@ -1,5 +1,7 @@
 var current_q = {};
 
+var score = 0;
+
 var pleasewait = {
     header:"Chargement",
     text:"Veuillez patienter...",
@@ -9,7 +11,7 @@ var pleasewait = {
 var congrats = {
     header:"Bravo!",
     class: "good_answer",
-    text:"Vous avez répondu",
+    text:"Vous avez complété la démo avec 0 bonne(s) réponse(s)!",
     buttons:[{t:"Envoyer le score",f:finish}]
 }
 
@@ -109,6 +111,7 @@ var action1 = function(){
     console.log("continuer");
     if (eventActuel == listeEvent.length - 1){
         //finish();
+        congrats.text = "Vous avez complété la démo avec "+score+ " bonne(s) réponse(s)!";
         open_modal(congrats);
     }
     else{
@@ -156,6 +159,7 @@ btn.onclick = function() {
     if ($(bonne)[0].checked){ //SI BONNE REPONSE
         message.header = "Bonne réponse! <i class='fas fa-laugh-beam'></i>";
         message.class = "good_answer";
+        score++;
         $("#"+listeEvent[eventActuel].nom_t).css({"background-color":"green"});
         changeRep("satif",current_q.question.satis);
         changeRep("perso",current_q.question.perso);
