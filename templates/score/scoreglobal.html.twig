@@ -53,7 +53,7 @@
   {% for Score in Scores|slice(0, 10) %} {# fait apparaitre les 10 premiers #}
   {% if Score.isUser.getUsername() not in newArray %} {# affiche distinctement le scrore le plus élevé du joueur #}
     <div class="stats">
-    <div class="case">{{Score.isUser.getUsername()}}</div>
+    <div class="case"><b>{{ loop.index }}</b>-{{Score.isUser.getUsername()}}</div>
     <div class="case c1">{{Score.creation_partie |date('d-m-Y') }}</div>
     <div class="case">{{Score.satisfactionC}}</div>
     <div class="case">{{Score.reputationP}}</div>
